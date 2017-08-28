@@ -1,0 +1,182 @@
+.table1 {
+	border-spacing: 0px;
+
+}
+
+
+td {
+	text-align: center;
+}
+.table2 {
+	text-align: left;
+
+	border-spacing: 0 0;
+}
+.table2 th {
+	border-bottom: 1px solid grey;
+	text-align: left;
+}
+
+.table2 tr td {
+	height: 40px;
+	text-align: left;
+
+}
+
+
+.table3 {
+	text-align: left;
+
+	border-spacing: 0 0;
+}
+.table3 th {
+	border-bottom: 1px solid grey;
+	text-align: left;
+}
+
+.table3 tr td {
+	height: 40px;
+	text-align: left;
+	border-bottom: 1px solid grey;
+
+}
+
+.table4 {
+	border-spacing: 0 0;
+}
+.table4 tr td {
+	border-bottom: 1px solid grey;
+	height: 40px;
+	min-width: 100px;
+
+
+}
+
+.main
+ {
+	width: 700px;
+	padding: 20px;
+	border: 0.5px solid grey;
+	border-radius: 5px;
+
+	box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+}
+
+.func {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	width: 130px;
+
+}
+td .plus {
+	background-color: red;
+	width: 30px;
+	height: 30px;
+	color: white;
+	float: left;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	
+
+}
+
+td .minus {
+	background-color: red;
+	width: 30px;
+	height: 30px;
+	color: white;
+	float: left;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+
+	
+
+}
+
+td .del {
+	background-color: red;
+	
+	height: 30px;
+	color: white;
+	float: left;
+	font-size: 0.8em;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: flex;
+	align-items: center;
+
+	
+
+}
+
+td .del:hover {
+	background: #8B0000;
+	height: 27px;
+	
+}
+
+.del span {
+	
+}
+
+.name {
+	color: red;
+}
+
+.summa {
+	margin-left: 460px;
+	
+	margin-top: 20px;
+	
+}
+
+.skidka {
+	
+	margin-top: 20px;
+	
+	font-size: 0.8em;
+	color: grey;
+}
+
+.close {
+	text-align: center;
+	margin-left: 700px;
+	font-size: 1.4em;
+	background: black;
+	color: white;
+	margin-top: -285px;
+	border: 4px solid white;
+	height: 25px;
+	width: 25px;
+	position: absolute;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 15px;
+	transform: rotate(45deg);
+	box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+	
+
+}
+
+.close span {
+	position: absolute;
+	margin-left: -9px;
+	margin-top: -1px;
+	
+}
+
+.korzina {
+	
+	margin-top: 40px;
+	margin-left: 250px;
+	color: red;
+	font-style: italic;
+}
