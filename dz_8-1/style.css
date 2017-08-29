@@ -1,5 +1,12 @@
+.wraper {
+	max-width: 822px;
+	font-family: Tahoma;
+	margin: 0 auto;
+}
+
 .header {
 	height: 100%;
+
 	
 	background-color: #ff9800;
 	padding: 20px;
