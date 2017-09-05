@@ -1,0 +1,45 @@
+body {
+	background-color: grey;
+	font-size: 16px;
+	margin: 0 auto;
+	padding: 0;
+
+	
+}
+ 
+
+
+
+
+
+
+
+@media screen and (max-width: 500px) {
+	
+.tx{
+	margin-top: 10px
+	margin-bottom: 5px;
+}
+	.header {
+		width: 95%;
+		margin: 2%;
+		padding-top: 20px;
+		font-size: 1.5rem;
+	}
+	
+   #vklad {
+      width: 97%;
+      
+   }
+   #termin {
+      width: 95%;
+       
+      
+   }
+   #procent {
+      width: 95%;
+      
+   }
+   
+
+}
