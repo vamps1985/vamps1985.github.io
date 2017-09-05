@@ -15,7 +15,7 @@
 				rez = rez + vklad;
 				rez = parseInt(rez +(rez*procent));
 				
-				console.log(rez);
+				
 				x++;
 
 		}
