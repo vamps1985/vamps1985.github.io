@@ -1,4 +1,4 @@
-let vklad = parseInt(document.getElementById('vklad').value);
+	let vklad = parseInt(document.getElementById('vklad').value);
 	var termin = parseInt(document.getElementById('termin').value);
 	var procent = parseInt(document.getElementById('procent').value);
 	var procent = procent / 100;
