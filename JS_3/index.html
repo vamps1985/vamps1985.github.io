@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<p id="new">test</p>
+<input type="text" id="index"> Индекс масива <br> <br>
+<input type="text" id="name"> Значение масива <br> <br>
+<button id="bt" onclick="fn2()">ok</button>
+<button onclick="fn3()">pop</button>
+
+<p id="new2"></p>
+	
+</body>
+<script>
+	var z = [3,4,56,765,34,345];
+	
+	function fn() {
+		// body...
+	var str = "";
+
+	for (var i = 0; i < z.length; i++) {
+
+		 str += z[i] + " ";
+	}
+	document.getElementById('new').innerHTML = str;
+	}
+	fn();
+	let mass = {};
+function fn2() {
+
+	
+	
+	var z2 = document.getElementById('index').value;
+	var z3 = document.getElementById('name').value;
+
+	mass[z2] = z3;
+	
+
+
+
+	var p = document.getElementById("new2");
+	var str1 = " ";
+	for ( var i in mass ) {
+		str1 += i + " " + ":"+ mass[i] + "<br>";
+
+		
+	}
+	p.innerHTML = str1;
+	console.log(mass);
+	
+
+
+	}
+
+	function fn3() {
+		console.log(mass);
+		console.log(mass.pop());
+
+
+		
+}
+	
+	// body...
+
+
+
+
+
+</script>
+</html>
