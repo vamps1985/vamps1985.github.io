@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JS-4</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+	
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+	
+	<div class="img">
+	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="1">
+	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="2">
+	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="3">
+	</div>
+
+<button onclick="bt1()">кнопка 1</button>
+<button onclick="bt2()">кнопка 2</button>
+<br>
+<span id="bt"> </span> <br>
+<span id="bt1"> </span>
+
+<script>
+function fn() {
+
+	
+	// body...
+
+
+let x =  document.getElementsByTagName("p");
+
+
+for (let i = 0; i < x.length; i++) {
+	x[i].style.backgroundColor = "red";
+}
+
+ }
+fn();
+
+function fn1() {
+let img =  document.getElementsByTagName("img");
+console.log(img)
+
+for (let i = 0; i < img.length; i++) {
+	
+	console.log(img[i]);
+	img[i].style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
+ 
+};
+
+ };
+
+ fn1();
+
+function fun2() {
+
+
+	let z = document.getElementsByTagName("p");
+	for (let i = 0; i < z.length; i++) {
+		let elem = document.createElement("span");
+		let elemText = document.createTextNode(i+1);
+		elem.appendChild(elemText);
+		
+		console.log(elem);
+		console.log(elemText);
+
+		elem.innerHTML = elemText;
+		
+		
+
+
+	
+}
+}
+fun2();
+
+var count = 0;
+var span = document.getElementById("bt");
+function bt1() {
+
+	count++;
+	
+
+
+	span.innerHTML = "Ви нажали на кнопку 1 - " + count + " раз";
+
+
+
+
+}
+var count1 = 0;
+var span1 = document.getElementById("bt1");
+function bt2() {
+	count1++;
+	span1.innerHTML = "Ви нажали на кнопку 2 - " + count1 + " раз";
+
+	// body...
+}
+
+</script>
+
+
+</body>
+
+
+
+</html>
