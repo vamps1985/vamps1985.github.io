@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Javascript 2</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+Задание 1 <br> <br>
+<input type="text" id="ls1" placeholder="введите год рождения"> <br> <br>
+
+<button onclick="fn()">подсчитать</button> <br> <br>
+
+<span id="rez1"></span> <br> <br>
+<hr>
+Задание 2
+<br>
+<br>
+<button onclick="fn2()">Запустити завдaння</button> <br> <br>
+<hr>
+Задание 3 <br> <br>
+
+<button onclick="fn3()">Запустити завдання</button> <br> <br>
+<hr>
+Задание 4
+<br>
+<br>
+<button onclick="fn4()">Запустити завдання</button>
+<br> <br>
+<hr>
+
+Задание 5
+
+<br><br>
+<button onclick="fn5()">Запустити завдання</button>
+
+<br>
+<br>
+<hr>
+<br>
+
+Задачи на цикл for
+<br>
+<br>
+<button onclick="fn6()">Запустити завдання 1</button>
+<br>
+
+<span id="rez6"></span>
+<hr>
+<button onclick="fn7()">Запустити завдання 2</button>
+<br>
+
+<span id="rez7"></span>
+<hr>
+<button onclick="fn8()">Запустити завдання 3</button>
+<br>
+<span id="rez8"></span>
+<hr>
+Задание 4 <br> <br>
+<input type="text" id="first" placeholder="введіть перше число">  <br> <br>
+<input type="text" id="second" placeholder="введіть друге число"> <br> <br>
+<button onclick="fn9()">Ввести в степінь</button> <br> <br>
+<span id="rez9"></span>
+<hr>
+<button onclick="fn10()">Запустити завдання 5</button>
+<br>
+<span id="rez10"></span>
+<hr>
+
+
+
+
+
+
+	<script>
+	function fn() {
+		let x = document.getElementById("ls1").value;
+		let rez = document.getElementById("rez1");
+		if (2<x.length) {
+			let year = 2017 - x;
+			rez.innerHTML = "Вам " + year + " років";
+		}
+		else {
+	
+			let year = 2017 - x - 2000;
+			rez.innerHTML = "Вам " + year + " років";
+		}
+		// body...
+	}
+	function fn2() {
+		var x2 = prompt('Введіть перше число')
+		let z2 = prompt('Введіть друге число')
+		if (x2>z2) {
+			alert(x2 + " більше за " + z2)
+		};
+			if (z2>x2) {
+			alert(z2 + " більше за " + x2)
+			}; 
+			if (z2==x2) {
+				alert("числа рівні")
+			}	
+			}
+		function fn3() {
+			 var kv = prompt("Введіть номер квартири"  );
+				if ((1<=kv )&&(kv<=20)) {
+					alert("Ваш підїзд перший");
+				}
+				else if ((21<=kv )&&(kv<=64)) { 
+					alert("Ваш підїзд другий");
+				}
+				else if ((65<=kv )&&(kv<=80)) { 
+					alert("Ваш підїзд третій");
+				}
+				else {
+					alert("Мальчик вы не из нашего двора, нет таких квартир в нашем доме)))");
+				}
+}
+				 
+function fn4() {
+	let user1 = "ivan";
+	let user2 = "ssss";
+	let user3 = "gibs";
+	let pass1 = "333";
+	let pass2 = "666";
+	let pass3 = "0000";
+	let user = prompt("введіть логин")
+	let pass = prompt("введіть пароль")
+
+	if ((user==user1)&&(pass==pass1)||(user==user2)&&(pass==pass2)||(user==user3)&&(pass==pass3)) {
+		alert("Добро пожаловать");
+	} 
+		else {
+			alert("ошибка");
+		}
+}
+			
+function fn5() {
+	let zn1 = prompt("Введіть перше число"  );
+	let zn2 = prompt("Введіть друге число"  );
+	let zn3 = prompt("Введіть третє число"  );
+
+	if ((zn1>zn2)&&(zn1>zn3)) {
+		alert("Перше число " + zn1 + " є найбільше");
+	} 
+	else if ((zn2>zn1)&&(zn2>zn3)) {
+		alert("Друге число " + zn2 + " є найбільше");
+	} 
+
+	else if ((zn3>zn1)&&(zn3>zn2)) {
+		alert("Третє число " + zn3 + " є найбільше");
+	} 
+}
+
+function fn6() {
+	let rez6 = document.getElementById("rez6");
+let str = "";
+	for (var i = 0; i <= 101; i=i+2) {
+		str = str + " " + i;
+
+		
+	}
+rez6.innerHTML = str;
+	// body...
+}
+
+function fn7() {
+	let rez7 = document.getElementById("rez7");
+let str7 = "";
+	for (var i = 200; i >= 0; i=i-1) {
+		str7 = str7 + " " + i;
+	}
+rez7.innerHTML = str7;
+	// body...
+}
+
+function fn8() {
+	let rez8 = document.getElementById("rez8");
+let summ = 0;
+	for (var i = 0; i <= 100; i++) {
+		summ = summ +i;
+		
+	}
+rez8.innerHTML = summ;
+	// body...
+}
+
+function fn9() {
+	let first = document.getElementById("first").value;
+	let second = document.getElementById("second").value;
+	let rez8 = document.getElementById("rez9");
+	let summ1 = first;
+	for (var i = 1; i < second; i++) {
+		
+		var summ2 = summ1 * first;
+		summ1 = summ2; 
+	}
+
+rez8.innerHTML = summ1;
+		}
+
+
+	</script>
+</body>
+</html>
+
+
