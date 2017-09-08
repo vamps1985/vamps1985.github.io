@@ -6,7 +6,9 @@
 	<link rel="stylesheet" href="">
 </head>
 <body>
-Задание 1 <br> <br>
+Задание 1  <br>
+Пользователь вводит год рождения в input. Пользователь может ввести год рождения в двух форматах: 1988 или 02 (имеется ввиду 2002). Программа должна вывести количество лет которое исполнилось пользователю. 
+ <br>
 <input type="text" id="ls1" placeholder="введите год рождения"> <br> <br>
 
 <button onclick="fn()">подсчитать</button> <br> <br>
@@ -15,6 +17,7 @@
 <hr>
 Задание 2
 <br>
+Пользователь вводит 2 числа. Найти и вывести максимальное из данных двух чисел. Учтите вариант равенства чисел.
 <br>
 <button onclick="fn2()">Запустити завдaння</button> <br> <br>
 <hr>
@@ -62,15 +65,20 @@
 <button onclick="fn9()">Ввести в степінь</button> <br> <br>
 <span id="rez9"></span>
 <hr>
-<button onclick="fn10()">Запустити завдання 5</button>
-<br>
+<button onclick="fn11()">Запустити завдання 5</button>
+<br> <br>
+<span id="rez11"></span>
+<hr>
+
+<button onclick="fn10()">Запустити завдання 6</button>
+<br> <br>
 <span id="rez10"></span>
 <hr>
 
-
-
-
-
+<button onclick="fn12()">Запустити завдання 7</button>
+<br> <br>
+<span id="rez12"></span>
+<hr>
 
 	<script>
 	function fn() {
@@ -183,21 +191,67 @@ let summ = 0;
 rez8.innerHTML = summ;
 	// body...
 }
-
 function fn9() {
 	let first = document.getElementById("first").value;
 	let second = document.getElementById("second").value;
-	let rez8 = document.getElementById("rez9");
+	let rez9 = document.getElementById("rez9");
 	let summ1 = first;
 	for (var i = 1; i < second; i++) {
 		
 		var summ2 = summ1 * first;
 		summ1 = summ2; 
 	}
-
-rez8.innerHTML = summ1;
+		rez9.innerHTML = first + " в степені " + second+ " = " + summ1;
 		}
 
+function fn11() {
+	
+	let rez11 = document.getElementById("rez11");
+	let vl = 7;
+	let summ1 = " ";
+	var summ2 = "";
+	for (var i = 1; i <= 10; i++) {
+		let sum = i*vl;
+		summ1 = i +'*'+  vl  + "=" + sum + "<br>"; 
+		summ2 = summ2 + summ1;
+
+	}
+	rez11.innerHTML = summ2;
+
+
+		}
+
+function fn10() {
+	
+	let rez10 = document.getElementById("rez10");
+	let summ1 = "";
+	for (let i = 1; i <= 50; i++) {
+		
+		var summ2 = i * i;
+		summ1 = summ1 + " " + summ2; 
+	}
+
+rez10.innerHTML = summ1;
+		}
+
+
+	function fn12() {
+	
+	let rez12 = document.getElementById("rez12");
+	let vl = 2000;
+	let summ1 = " ";
+	var summ2 = "";
+	let x = "&#";
+	for (let i = 1000; i <= 2000; i++) {
+		let z = x + i;
+		; 
+		summ2 = summ2 + " " + z;
+
+	}
+	rez12.innerHTML = summ2;
+
+
+		}
 
 	</script>
 </body>
