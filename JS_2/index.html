@@ -143,9 +143,9 @@ function fn4() {
 }
 			
 function fn5() {
-	let zn1 = prompt("Введіть перше число"  );
-	let zn2 = prompt("Введіть друге число"  );
-	let zn3 = prompt("Введіть третє число"  );
+	let zn1 = parseInt(prompt("Введіть перше число"  ));
+	let zn2 = parseInt(prompt("Введіть друге число"  ));
+	let zn3 = parseInt(prompt("Введіть третє число"  ));
 
 	if ((zn1>zn2)&&(zn1>zn3)) {
 		alert("Перше число " + zn1 + " є найбільше");
@@ -242,16 +242,18 @@ rez10.innerHTML = summ1;
 	let summ1 = " ";
 	var summ2 = "";
 	let x = "&#";
+	
 	for (let i = 1000; i <= 2000; i++) {
-		let z = x + i;
-		; 
+	 z = x + i;
+		
 		summ2 = summ2 + " " + z;
 
-	}
-	rez12.innerHTML = summ2;
+	
 
 
 		}
+		rez12.innerHTML = summ2;
+	}
 
 	</script>
 </body>
