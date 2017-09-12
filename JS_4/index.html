@@ -6,6 +6,9 @@
 	<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
+	<br>
+	<button onclick="fn()">Задание 1</button>
+	<br>
 
 		<p> Параграф Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
 
@@ -13,170 +16,134 @@
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
 
-		<span>Span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima eaque quod earum iusto repellat fuga quas consectetur nam. Qui necessitatibus, facilis numquam soluta illum harum maiores quidem minima aperiam molestias?</span>
+		
+		<br>
+		<hr>
+		<button onclick="fn1();">Задание 2</button>
+		<br>
+		<br>
+		<div class="img">
+		<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="1">
+		<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="2">
+		<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="3">
+		</div>
+		<hr>
+
+	<button onclick="fn7()">Задача 3 </button>
+	<br>
+	<hr>
+		
+		Задание 4 <br> <br>
+
+	<button onclick="bt1()">кнопка 1</button>
+	<button onclick="bt2()">кнопка 2</button>
+	<br>
+	<span id="bt"> </span> <br>
+	<span id="bt1"> </span>
+	<hr>
+
+<button onclick="fn4(7, 8)">Задача 5 </button>
+<br>
+<hr>
+
+
+<button onclick="fn3()">Задача 6</button>
+<br><p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quia autem, exercitationem totam fuga corrupti ipsam deleniti, quos fugit pariatur tenetur porro mollitia modi</p>
+	<span>Span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima eaque quod earum iusto repellat fuga quas consectetur nam. Qui necessitatibus, facilis numquam soluta illum harum maiores quidem minima aperiam molestias?</span>
 		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima eaque quod earum iusto repellat fuga quas consectetur nam. Qui necessitatibus, facilis numquam soluta illum harum maiores quidem minima aperiam molestias?</span>
 
 		<h1>h1 Test</h1>
 		<h2>h2 Test</h2>
-		
-	<div class="img">
-	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="1">
-	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="2">
-	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="3">
-	</div>
-	<br>
 
-<button onclick="bt1()">кнопка 1</button>
-<button onclick="bt2()">кнопка 2</button>
-<br>
-<span id="bt"> </span> <br>
-<span id="bt1"> </span>
-
-<br>
-
-<button onclick="fn4(7, 8)">Задача 5 </button>
-<br>
-
-<br>
-
-<button onclick="fn3()">Задача 6</button>
-<br>
-<br>
+<hr>
 <button onclick="fn5()">Задача 7 и 8</button>
 <br>
+<hr>
 
-<br>
-<button onclick="fn8()">Задача 9</button>
-<br>
-<br>
+<button onclick="fn9()">Задача 9</button>
+<br> 
+<hr>
 
+<button onclick="fn10()">Задача 10</button>
 
+<hr>
 
-
-
-
-<br>
 <button onclick="fn11()">Игра Угадай число</button>
-
 <script>
 "use strict";
 
 function fn() {
 
-
 let x =  document.getElementsByTagName("p");
-
-
-for (let i = 0; i < x.length; i++) {
+for (let i = 0; i < x.length; i++) 
+	{
 	x[i].style.backgroundColor = "red";
-}
+		}
 
- }
-fn();
+	}
 
 function fn1() {
-let img =  document.getElementsByTagName("img");
+	let img =  document.getElementsByTagName("img");
+	for (let i = 0; i < img.length; i++) {
+		img[i].style.boxShadow = "20px 0 20px rgba(0,0,0,0.8)";
+	};
+ 	};
 
+	var count = 0;
+	var span = document.getElementById("bt");
 
-for (let i = 0; i < img.length; i++) {
-	
-	
-	img[i].style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
- 
-};
-
- };
-
- fn1();
-
-
-
-
-var count = 0;
-var span = document.getElementById("bt");
-function bt1() {
-
-	count++;
-	
-
-
-	span.innerHTML = "Ви нажали на кнопку 1 - " + count + " раз";
-
-
-
-
-}
-var count1 = 0;
-var span1 = document.getElementById("bt1");
-function bt2() {
-	count1++;
-	span1.innerHTML = "Ви нажали на кнопку 2 - " + count1 + " раз";
-
-	// body...
-}
-
-
-
+	function bt1() {
+		count++;
+		span.innerHTML = "Ви нажали на кнопку 1 - " + count + " раз";
+	}
+	var count1 = 0;
+	var span1 = document.getElementById("bt1");
+	function bt2() {
+		count1++;
+		span1.innerHTML = "Ви нажали на кнопку 2 - " + count1 + " раз";
+	}
 
 // Задача цгадай число
 function fn11() {
 	let min = 1;
-	let max = 10;
-    var rand = min - 0.5 + Math.random() * (max - min + 1)
+	let max = 9;
+    var rand = min - 0.5 + Math.random() * (max - min + 1);
     rand = Math.round(rand);
-    
-    
-	let q = parseInt(prompt("введіть число "));
-
+    console.log(rand);
+	var q = parseInt(prompt("введіть число "));
 	for (var i = 1; i < 4; i++) {
+		console.log(q);
 		
-		
-
-	if ((q===rand)&&(i<3)) {
+	if ((q==rand)&&(i<4)) {
 		alert("Вітаю, ви вгадали");
 		break;
-		
 	}
 	else if ((q>rand)&&(i<3)){
 		let last = 3-i;
-		alert("Вказане чсло білбше за загадане, у Ва залиштлось " + last + " cпроб");
-		let q = prompt("спробуйте ще ");
-		
-
+		alert("Вказане число білбше за загадане, у Ва залишилось " + last + " cпроб");
+		var q = prompt("спробуйте ще ");
 	}
-	else if ((q<rand)&&(i<0)){
+	else if ((q<rand)&&(i<3)){
 		let last = 3-i;
-		alert("Вказане чсло меньше за загадане, у Ва залиштлось " + last + " cпроб");
-		let q = prompt("спробуйте ще ");
-
-
-
+		alert("Вказане число меньше за загадане, у Ва залишилось " + last + " cпроб");
+		var q = prompt("спробуйте ще ");
 	}
-	else  if (i==3) {
-		alert("нажаль ви програли. Загадане число " + rand);
-		
-	}
-
-}
-	
-}
-
+	else    {
+		alert("нажаль ви програли. Загадане число " + rand);	
+					}
+			}
+		}
   function fn3() {
-
-  	
   	let content = prompt('Введите текст' );
-  	
   	let x =  document.getElementsByTagName(content);
-
 	for (let i = 0; i < x.length; i++) {
 		x[i].style.textDecoration = "underline";
-	}
+		}
  	}
 
  	function fn4(a, b) {
  		alert(Math.pow(a, b));
- 		
- 	}
+ 		}
 
  	function fn5() {
  		let age = parseInt(prompt("Введите Ваш возвраст " ));
@@ -192,36 +159,60 @@ function fn11() {
  		}
  	}
 
-
-
-
-
 function fun2() {
 	let arrContent = document.getElementsByTagName("p");
-
 	for (let i = 0; i < arrContent.length; i++) {
-	
 		let content = arrContent[i].innerHTML;
-
 		arrContent[i].innerHTML = i+1 + ". " + content;
 	}
 	}
 
-
 function fn7() {
-	let arrContent = document.getElementsByTagName("p");
-	let i = 0;
-
+	var arrContent = document.getElementsByTagName("p");
+	let i = 0
 	while (i < arrContent.length) {
 		let content = arrContent[i].innerHTML;
-
 		arrContent[i].innerHTML = i+1 + ". " + content;
 		i++;
 		}
 	}
 
-fn7();
 
+function fn9() {
+	var mass = [6, 45, 43, 23, 123, 453, 1231, 123];
+	fn8(mass);
+
+}
+
+function fn8(a) {
+	if (a!=undefined) {
+	let lenMass = a.length;
+	alert("В нашому масиві " + lenMass + " елементів");
+	}
+	else if (a==undefined) {
+		alert("помилка, аргумент відсутній");
+	}
+}
+
+function fn10() {
+	let w = prompt("Введіть число" );
+	alert(fn11(w)); 
+}
+
+function fn11(a) {
+	if (a>10) {
+		return a*a;
+	} 
+	else if (a<7){
+		return " число меньше 7";
+	}
+	else if ((a==8)||(a==9)) {
+		return a-1;
+	}
+		else {
+			return "для цього значення умов в задачі не вказано";
+		}
+}
 
 </script>
 
