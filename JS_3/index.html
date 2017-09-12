@@ -32,7 +32,9 @@ function pastContent(a,b) {
 	// body...
 }
 
-function getContent(argument) {
+function getContentValue(x) {
+	return document.getElementById(x).value;
+
 	// body...
 }
 	var z = [3,4,56,765,34,345];
@@ -51,8 +53,8 @@ function getContent(argument) {
 
 	let mass = {};
 		function fn2() {
-	var z2 = document.getElementById('index').value;
-	var z3 = document.getElementById('name').value;
+	var z2 = getContentValue('index');
+	var z3 = getContentValue('name');
 	mass[z2] = z3;
 	var p = document.getElementById("new2");
 	var str1 = " ";
@@ -72,7 +74,7 @@ function getContent(argument) {
 	
 	function fn4() {
 
-		let z4 = document.getElementById("index1").value;
+		let z4 = getContentValue("index1");
 		if ((z4-0>=0)&&(z4<=z.length-1)) { 
 			var srt7 = z[z4];
 
@@ -97,7 +99,7 @@ function fn5() {
 	pastContent('test', str2);
 	}	
 function fn6() {
-	var z6 = document.getElementById('name1').value;
+	var z6 = getContentValue('name1');
 	z.push(z6);
 	var str5 = "";
 	for (var i = 0; i < z.length; i++) {
