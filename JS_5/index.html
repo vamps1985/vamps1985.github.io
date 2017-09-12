@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>JS 5</title>
 </head>
 <body>
 Задание 1. 
@@ -11,7 +11,9 @@
 <span id="rez1"></span>
 
 <hr>
-	<span>Задание 2.</span>
+	<span>Задание 2</span>
+	<button onclick="fnPic()">нажми</button> 
+	<div id="box"></div>
 
 
 
@@ -24,10 +26,29 @@ function fn() {
 	
 	let lstr = str.length;
 	
-	rez.innerHTML = "Довжина вашої строки  " + lstr;
+	rez.innerHTML = "Довжина вашої строки  " + lstr + " символів";
 	// body...
 }
+var count = 0;
+function fnPic() {
+	
+	var pic = ["img/1.png", "img/2.png", "img/3.png","img/4.png", "img/5.png", "img/6.png"];
+	if (count<pic.length) {
+	for ( let i = 0; i < pic.length; i++) {
+	count++;
+	var o=document.createElement('img')
 
+    o.src=pic[i];
+    o.width= 200;
+    
+    
+    document.getElementById('box').appendChild(o);
+    
+
+	}
+		}
+
+}
 
 
 </script>
