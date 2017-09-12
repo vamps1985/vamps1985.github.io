@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+	<head>
 	<meta charset="UTF-8">
 	<title>JS-4</title>
 	<link rel="stylesheet" href="style.css">
-</head>
-<body>
+	</head>
+	<body>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+		<p> Параграф Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
-	
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
-	
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
+
+		<span>Span Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima eaque quod earum iusto repellat fuga quas consectetur nam. Qui necessitatibus, facilis numquam soluta illum harum maiores quidem minima aperiam molestias?</span>
+		<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima eaque quod earum iusto repellat fuga quas consectetur nam. Qui necessitatibus, facilis numquam soluta illum harum maiores quidem minima aperiam molestias?</span>
+
+		<h1>h1 Test</h1>
+		<h2>h2 Test</h2>
+		
 	<div class="img">
 	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="1">
 	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="2">
 	<img src="http://www.djsoutsourcing.com/wp-content/uploads/2015/10/javascript-Djs-Outsourcing.png" alt="3">
 	</div>
+	<br>
 
 <button onclick="bt1()">кнопка 1</button>
 <button onclick="bt2()">кнопка 2</button>
@@ -25,11 +32,36 @@
 <span id="bt"> </span> <br>
 <span id="bt1"> </span>
 
-<script>
-function fn() {
+<br>
 
-	
-	// body...
+<button onclick="fn4(7, 8)">Задача 5 </button>
+<br>
+
+<br>
+
+<button onclick="fn3()">Задача 6</button>
+<br>
+<br>
+<button onclick="fn5()">Задача 7 и 8</button>
+<br>
+
+<br>
+<button onclick="fn8()">Задача 9</button>
+<br>
+<br>
+
+
+
+
+
+
+<br>
+<button onclick="fn11()">Игра Угадай число</button>
+
+<script>
+"use strict";
+
+function fn() {
 
 
 let x =  document.getElementsByTagName("p");
@@ -44,11 +76,11 @@ fn();
 
 function fn1() {
 let img =  document.getElementsByTagName("img");
-console.log(img)
+
 
 for (let i = 0; i < img.length; i++) {
 	
-	console.log(img[i]);
+	
 	img[i].style.boxShadow = "0 0 10px rgba(0,0,0,0.5)";
  
 };
@@ -84,24 +116,112 @@ function bt2() {
 }
 
 
+
+
+// Задача цгадай число
+function fn11() {
+	let min = 1;
+	let max = 10;
+    var rand = min - 0.5 + Math.random() * (max - min + 1)
+    rand = Math.round(rand);
+    
+    
+	let q = parseInt(prompt("введіть число "));
+
+	for (var i = 1; i < 4; i++) {
+		
+		
+
+	if ((q===rand)&&(i<3)) {
+		alert("Вітаю, ви вгадали");
+		break;
+		
+	}
+	else if ((q>rand)&&(i<3)){
+		let last = 3-i;
+		alert("Вказане чсло білбше за загадане, у Ва залиштлось " + last + " cпроб");
+		let q = prompt("спробуйте ще ");
+		
+
+	}
+	else if ((q<rand)&&(i<0)){
+		let last = 3-i;
+		alert("Вказане чсло меньше за загадане, у Ва залиштлось " + last + " cпроб");
+		let q = prompt("спробуйте ще ");
+
+
+
+	}
+	else  if (i==3) {
+		alert("нажаль ви програли. Загадане число " + rand);
+		
+	}
+
+}
+	
+}
+
+  function fn3() {
+
+  	
+  	let content = prompt('Введите текст' );
+  	
+  	let x =  document.getElementsByTagName(content);
+
+	for (let i = 0; i < x.length; i++) {
+		x[i].style.textDecoration = "underline";
+	}
+ 	}
+
+ 	function fn4(a, b) {
+ 		alert(Math.pow(a, b));
+ 		
+ 	}
+
+ 	function fn5() {
+ 		let age = parseInt(prompt("Введите Ваш возвраст " ));
+ 		if (16<age) {
+ 			alert("Добро пожаловать ")
+ 		}
+ 		else  if  (age<16) {
+ 			alert("вы еще молоды")
+ 		}
+ 		else {
+ 			alert("Введите возраст")
+ 			return fn5();
+ 		}
+ 	}
+
+
+
+
+
 function fun2() {
+	let arrContent = document.getElementsByTagName("p");
 
-
-	var z = document.getElementsByTagName("p");
-
+	for (let i = 0; i < arrContent.length; i++) {
 	
-	for (var i = 0; i < z.length+1; i++) {
-		let z1 = z[i].textContent;
-		let x1 = i +1;
+		let content = arrContent[i].innerHTML;
 
-		let z2 = x1 + "." + " " + z1;
-		z[i].innerHTML = z2;
+		arrContent[i].innerHTML = i+1 + ". " + content;
+	}
+	}
 
 
-	
-}
-}
-fun2();
+function fn7() {
+	let arrContent = document.getElementsByTagName("p");
+	let i = 0;
+
+	while (i < arrContent.length) {
+		let content = arrContent[i].innerHTML;
+
+		arrContent[i].innerHTML = i+1 + ". " + content;
+		i++;
+		}
+	}
+
+fn7();
+
 
 </script>
 

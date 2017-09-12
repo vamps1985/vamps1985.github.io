@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+Задание 1. 
+<p>Ведіть строку: <input type="text" id="str1"></p>
+<button onclick="fn()" >ПУСК</button> <br>
+<span id="rez1"></span>
+
+<hr>
+	<span>Задание 2.</span>
+
+
+
+<script>
+	"use strict";
+
+function fn() {
+	let str = document.getElementById("str1").value;
+	let rez = document.getElementById("rez1");
+	
+	let lstr = str.length;
+	
+	rez.innerHTML = "Довжина вашої строки  " + lstr;
+	// body...
+}
+
+
+
+</script>
+
+</body>
+</html>

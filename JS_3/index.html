@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-<p id="new">test</p>
+<p id="test">test</p>
 
 <input type="text" id="index1"> индекс масива <br> <br>
 <input type="text" id="name1"> Добавить значение в масив и нажмите push <br> <br>
@@ -27,6 +27,14 @@
 	</div>
 </body>
 <script>
+function pastContent(a,b) {
+	document.getElementById(a).innerHTML = b;
+	// body...
+}
+
+function getContent(argument) {
+	// body...
+}
 	var z = [3,4,56,765,34,345];
 
 	function fn() {
@@ -34,7 +42,7 @@
 	for (var i = 0; i < z.length; i++) {
 		 str += z[i] + " ";
 	}
-	document.getElementById('new').innerHTML = str;
+	pastContent('test', str);
 	}
 	fn();
 
@@ -51,7 +59,7 @@
 	for ( var i in mass ) {
 		str1 += i + " " + ":"+ mass[i] + "<br>";}
 	p.innerHTML = str1;
-	console.log(mass);
+	
 	}
 	function fn3() {
 		var str = "";
@@ -59,18 +67,24 @@
 		for (var i = 0; i < z.length; i++) {
 		 str += z[i] + " ";
 	}
-document.getElementById('new').innerHTML = str;	
-}
+		pastContent('test', str);
+	}
 	
-function fn4() {
+	function fn4() {
 
 		let z4 = document.getElementById("index1").value;
-		
-		var srt7 = z[z4];
-		
+		if ((z4-0>=0)&&(z4<=z.length-1)) { 
+			var srt7 = z[z4];
 
 		document.getElementById('new1').innerHTML = "елемент с индексом" + " " + z4 + " має значення " + srt7;
 
+		} 
+			else {
+				document.getElementById('new1').innerHTML = "Введіть число або елемента з вказаним індексом не існує";
+
+			}
+		
+		
 		// body...
 	}	// body...
 
@@ -80,7 +94,7 @@ function fn5() {
 		for (var i = 0; i < z.length; i++) {
 		 str2 += z[i] + " ";
 	}
-	document.getElementById('new').innerHTML = str2;
+	pastContent('test', str2);
 	}	
 function fn6() {
 	var z6 = document.getElementById('name1').value;
@@ -89,7 +103,7 @@ function fn6() {
 	for (var i = 0; i < z.length; i++) {
 		 str5 += z[i] + " ";
 	}
-	document.getElementById('new').innerHTML = str5;
+	pastContent('test', str5);
 
 
 
