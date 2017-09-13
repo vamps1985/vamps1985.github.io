@@ -68,7 +68,7 @@
 
 <hr>
 
-<button onclick="fn11()">Игра Угадай число</button>
+<button onclick="fn12()">Игра Угадай число</button>
 <script>
 "use strict";
 
@@ -104,7 +104,7 @@ function fn1() {
 	}
 
 // Задача цгадай число
-function fn11() {
+function fn12() {
 	let min = 1;
 	let max = 9;
     var rand = min - 0.5 + Math.random() * (max - min + 1);
@@ -112,7 +112,7 @@ function fn11() {
     console.log(rand);
 	var q = parseInt(prompt("введіть число "));
 	for (var i = 1; i < 4; i++) {
-		console.log(q);
+		
 		
 	if ((q==rand)&&(i<4)) {
 		alert("Вітаю, ви вгадали");
@@ -196,7 +196,20 @@ function fn8(a) {
 
 function fn10() {
 	let w = prompt("Введіть число" );
-	alert(fn11(w)); 
+	console.log(w);
+	if ((w==0)||(w==NaN)) {
+		alert("Ви не ввели число");
+		return fn10();
+
+		}
+		else if (w==null){
+			alert("Допобачення");
+			} 
+		else {
+			alert(fn11(w)); 
+
+		}
+	
 }
 
 function fn11(a) {
