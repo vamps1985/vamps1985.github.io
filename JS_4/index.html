@@ -16,7 +16,7 @@
 
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quis quas inventore in ratione quisquam blanditiis cum laudantium voluptates nihil ut accusamus reiciendis, hic perferendis labore, voluptas aliquam. Totam, odit.</p>
 
-		
+
 		<br>
 		<hr>
 		<button onclick="fn1();">Задание 2</button>
@@ -32,7 +32,7 @@
 	<button onclick="fn7()">Задача 3 </button>
 	<br>
 	<hr>
-		
+
 		Задание 4 <br> <br>
 
 	<button onclick="bt1()">кнопка 1</button>
@@ -61,7 +61,7 @@
 <hr>
 
 <button onclick="fn9()">Задача 9</button>
-<br> 
+<br>
 <hr>
 
 <button onclick="fn10()">Задача 10</button>
@@ -75,7 +75,7 @@
 function fn() {
 
 let x =  document.getElementsByTagName("p");
-for (let i = 0; i < x.length; i++) 
+for (let i = 0; i < x.length; i++)
 	{
 	x[i].style.backgroundColor = "red";
 		}
@@ -104,35 +104,60 @@ function fn1() {
 	}
 
 // Задача цгадай число
+
+
 function fn12() {
-	let min = 1;
-	let max = 9;
-    var rand = min - 0.5 + Math.random() * (max - min + 1);
-    rand = Math.round(rand);
-    console.log(rand);
-	var q = parseInt(prompt("введіть число "));
-	for (var i = 1; i < 4; i++) {
-		
-		
-	if ((q==rand)&&(i<4)) {
-		alert("Вітаю, ви вгадали");
-		break;
+			let min = 1;
+			let max = 9;
+	    var rand = min - 0.5 + Math.random() * (max - min + 1);
+	    rand = Math.round(rand);
+			let q = prompt("введіть число від одного до 10");
+
+	if ((q.length==0)&&(q.length!=null)) {
+		alert("Ви не ввели число");
+		return fn12();
+
 	}
-	else if ((q>rand)&&(i<3)){
-		let last = 3-i;
-		alert("Вказане число білбше за загадане, у Ва залишилось " + last + " cпроб");
-		var q = prompt("спробуйте ще ");
+	else  if (q.length==1) {
+		q = parseInt(q);
+	 	fn13();
 	}
-	else if ((q<rand)&&(i<3)){
-		let last = 3-i;
-		alert("Вказане число меньше за загадане, у Ва залишилось " + last + " cпроб");
-		var q = prompt("спробуйте ще ");
-	}
-	else    {
-		alert("нажаль ви програли. Загадане число " + rand);	
-					}
-			}
+	function fn13() {
+
+		for (var i = 1; i < 4; i++) {
+
+		if ((q==rand)&&(i<4)) {
+			alert("Вітаю, ви вгадали");
+			break;
 		}
+		else if ((q>rand)&&(i<3)){
+			let last = 3-i;
+			alert("Вказане число білбше за загадане, у Ва залишилось " + last + " cпроб");
+			q = prompt("спробуйте ще ");
+		}
+		else if ((q<rand)&&(i<3)){
+			let last = 3-i;
+			alert("Вказане число меньше за загадане, у Ва залишилось " + last + " cпроб");
+			q = prompt("спробуйте ще ");
+		}
+		else if  ((q!=rand)&&(i==4)) {
+			alert("нажаль ви програли. Загадане число " + rand);
+						}
+			else if
+				((q.length==0)&&(q.length!=null)) {
+					alert("Ви не ввели число");
+					break
+				}
+				else {
+					alert("нажаль ви програли. Загадане число " + rand);
+					break
+				}
+						}
+				}
+
+
+	}
+
   function fn3() {
   	let content = prompt('Введите текст' );
   	let x =  document.getElementsByTagName(content);
@@ -204,18 +229,18 @@ function fn10() {
 		}
 		else if (w==null){
 			alert("Допобачення");
-			} 
+			}
 		else {
-			alert(fn11(w)); 
+			alert(fn11(w));
 
 		}
-	
+
 }
 
 function fn11(a) {
 	if (a>10) {
 		return a*a;
-	} 
+	}
 	else if (a<7){
 		return " число меньше 7";
 	}
