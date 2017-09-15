@@ -10,9 +10,10 @@
   background-image:  url(img/close.png);
 }
 #les3 {
-  height: auto;
+  height: 100%;
   width: 100%;
   border: 1px solid black;
+  overflow: auto;
 
 }
 
@@ -27,4 +28,9 @@
   transition: 1s;
 
 
+
+}
+
+.les4 {
+  margin-top: 20px;
 }
