@@ -20,8 +20,8 @@
  .les31 {
   width: 30px;
   height: 30px;
-  border: 1px solid black;
-  background-color: blue;
+
+  background-color: #088A29;
   float: left;
   margin-left: 5px;
   margin-top: 5px;
@@ -31,6 +31,11 @@
 
 }
 
-.les4 {
+#les4 {
   margin-top: 20px;
+  width: 100%;
+  height: 250px;
+
+  background-repeat: no-repeat;
+  background-size: contain;
 }

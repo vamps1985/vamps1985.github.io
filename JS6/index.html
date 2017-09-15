@@ -24,15 +24,26 @@
 
 </div>
 <br>
+<span>Задание 4</span>
+<div id="les4">
 
-<div class="les4">
-  <span>Задание 4</span>
+
+
+
+
 </div>
+<div id="box">
+
+</div>
+
+
 <br>
 
 <br>
 
 <script>
+
+
 function fn1() {
   let les1 = document.getElementById('les1');
   let rez1 = document.getElementById('rez1');
@@ -61,15 +72,65 @@ parentElem.insertBefore(div2, rez3.previousSibling);
 };
 
 let el = document.getElementsByClassName('les31');
-console.log(el);
+
 for (var i = 0; i < el.length; i++) {
   el[i].addEventListener("mouseover", fn3, false);
 }
 function fn3(event) {
   for (var i = 0; i < el.length; i++) {
-      el[i].style.borderRadius = "15px";
+      el[i].style.borderRadius = "15px";el[i].style.borderRadius = "15px";
+      el[i].style.backgroundColor = "#58ACFA";
         }
   }
+
+  fnPic();
+
+  function fnPic() {
+    let count = 0;
+    var pic = ["img/pic1.jpg", "img/pic2.jpg", "img/pic3.jpg","img/pic4.jpg", "img/pic5.jpg"];
+    if (count<pic.length) {
+    for ( let i = 0; i < pic.length; i++) {
+    count++;
+    let x =document.createElement('img')
+      x.src=pic[i];
+      x.className = "pic";
+      document.getElementById('box').appendChild(x);
+      x.style.width = "200px";
+        }
+      }
+
+      let les4 = document.getElementById('les4');
+
+      let picb = document.getElementsByClassName('pic');
+      console.log(picb);
+
+
+      for (var i = 0; i < picb.length; i++) {
+
+      picb[i].onclick = function () {
+
+        console.log(i);
+
+
+
+        var st1 = picb[0];
+
+        les4.style.backgroundImage = "url(st1)";
+        les4.style.backgroundSize = 'contain';
+
+
+        }
+
+
+
+      }
+
+
+    }
+
+
+
+
 
 </script>
   </body>
