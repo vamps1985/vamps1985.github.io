@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS6</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <span>Задание 1</span>
+    <div id="les1">
+
+    </div>
+    <span id="rez1"></span>
+    <hr>
+
+    <span>Задание 2</span>
+    <div  id="les2">
+
+    </div>
+    <hr>
+      <span>Задание 3</span>
+
+<div id="les3">
+
+</div>
+<br>
+
+<div class="les4">
+  <span>Задание 4</span>
+</div>
+<br>
+
+<br>
+
+<script>
+function fn1() {
+  let les1 = document.getElementById('les1');
+  let rez1 = document.getElementById('rez1');
+  let x = 0;
+  let y = 0;
+  les1.onmousemove = function (event) {
+    x = event.pageX;
+    y = event.pageY;
+    rez1.innerHTML = ("Позиція курсора = " + (x-8) + "/" + (y-28));
+  }
+}
+fn1();
+  let les2 = document.getElementById('les2');
+  les2.addEventListener("click", fn2, false);
+  function fn2(event) {
+        les2.style.backgroundImage = "url(img/open.png)";
+    }
+let rez3 = document.createElement('div');
+rez3.className = "les31";
+let parentElem = document.getElementById('les3');
+
+for (var i = 0; i < 300; i++) {
+  let div2 = rez3.cloneNode(true);
+
+parentElem.insertBefore(div2, rez3.previousSibling);
+};
+
+let el = document.getElementsByClassName('les31');
+console.log(el);
+for (var i = 0; i < el.length; i++) {
+  el[i].addEventListener("mouseover", fn3, false);
+}
+function fn3(event) {
+  for (var i = 0; i < el.length; i++) {
+      el[i].style.borderRadius = "15px";
+        }
+  }
+
+</script>
+  </body>
+</html>

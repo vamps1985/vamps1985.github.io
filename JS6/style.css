@@ -1,0 +1,30 @@
+#les1 {
+  width: 300px;
+  height: 300px;
+  border: 1px solid black;
+}
+#les2 {
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  background-image:  url(img/close.png);
+}
+#les3 {
+  height: auto;
+  width: 100%;
+  border: 1px solid black;
+
+}
+
+ .les31 {
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  background-color: blue;
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+  transition: 1s;
+
+
+}
