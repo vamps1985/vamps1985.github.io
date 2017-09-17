@@ -8,14 +8,11 @@
   <body>
     <span>Задание 1</span>
     <div id="les1">
-
     </div>
     <span id="rez1"></span>
     <hr>
-
     <span>Задание 2</span>
     <div  id="les2">
-
     </div>
     <hr>
       <span>Задание 3</span>
@@ -26,23 +23,32 @@
 <br>
 <span>Задание 4</span>
 <div id="les4">
-
-
-
-
-
 </div>
 <div id="box">
+  <img src="img/pic1.jpg" class="pic" alt="" onclick="fnPic1()">
+  <img src="img/pic2.jpg" class="pic" alt="" onclick="fnPic2()">
+  <img src="img/pic3.jpg" class="pic" alt="" onclick="fnPic3()">
+  <img src="img/pic4.jpg" class="pic" alt="" onclick="fnPic4()">
+  <img src="img/pic5.jpg" class="pic" alt="" onclick="fnPic5()">
 
 </div>
+<hr>
+<span>Задание 5</span>
 
+<div id="les6" onclick="fn6()">
 
-<br>
+</div>
+<hr>
+<span>Задание 6</span>
+  <div id="eles6">
+    <div id="eles6-1">
 
-<br>
+    </div>
+
+  </div>
+
 
 <script>
-
 
 function fn1() {
   let les1 = document.getElementById('les1');
@@ -67,12 +73,10 @@ let parentElem = document.getElementById('les3');
 
 for (var i = 0; i < 300; i++) {
   let div2 = rez3.cloneNode(true);
-
 parentElem.insertBefore(div2, rez3.previousSibling);
 };
 
 let el = document.getElementsByClassName('les31');
-
 for (var i = 0; i < el.length; i++) {
   el[i].addEventListener("mouseover", fn3, false);
 }
@@ -81,52 +85,77 @@ function fn3(event) {
       el[i].style.borderRadius = "15px";el[i].style.borderRadius = "15px";
       el[i].style.backgroundColor = "#58ACFA";
         }
+
+    for (var i = 0; i < el.length; i++) {
+        el[i].addEventListener("mouseout", fn4, false);
+        }
+        function fn4(event) {
+          for (var i = 0; i < el.length; i++) {
+              el[i].style.borderRadius = "";
+              el[i].style.backgroundColor = "";
+                }
   }
+}
 
-  fnPic();
-
-  function fnPic() {
-    let count = 0;
-    var pic = ["img/pic1.jpg", "img/pic2.jpg", "img/pic3.jpg","img/pic4.jpg", "img/pic5.jpg"];
-    if (count<pic.length) {
-    for ( let i = 0; i < pic.length; i++) {
-    count++;
-    let x =document.createElement('img')
-      x.src=pic[i];
-      x.className = "pic";
-      document.getElementById('box').appendChild(x);
-      x.style.width = "200px";
+  let les4 = document.getElementById('les4');
+  function fnPic1() {
+    les4.style.backgroundImage = "url(img/pic1.jpg)";
+    les4.style.backgroundSize = 'contain';
+       }
+  function fnPic2() {
+    les4.style.backgroundImage = "url(img/pic2.jpg)";
+    les4.style.backgroundSize = 'contain';
         }
-      }
+  function fnPic3() {
+    les4.style.backgroundImage = "url(img/pic3.jpg)";
+    les4.style.backgroundSize = 'contain';
+            }
+  function fnPic4() {
+    les4.style.backgroundImage = "url(img/pic4.jpg)";
+    les4.style.backgroundSize = 'contain';
+            }
+  function fnPic5() {
+    les4.style.backgroundImage = "url(img/pic5.jpg)";
+    les4.style.backgroundSize = 'contain';
+          }
+function fn6() {
+  let les6 = document.getElementById('les6');
+  let computedStyle = getComputedStyle(les6);
+  let marginTop = computedStyle.marginTop;
+  marginTop = parseInt(marginTop);
+  marginTop = marginTop + 100;
 
-      let les4 = document.getElementById('les4');
+  les6.style.marginTop = marginTop + "px";
+}
 
-      let picb = document.getElementsByClassName('pic');
-      console.log(picb);
+let les7 = document.getElementById('eles6-1');
 
+les7.addEventListener("click", fn7);
 
-      for (var i = 0; i < picb.length; i++) {
-
-      picb[i].onclick = function () {
-
-        console.log(i);
-
-
-
-        var st1 = picb[0];
-
-        les4.style.backgroundImage = "url(st1)";
-        les4.style.backgroundSize = 'contain';
-
-
-        }
-
-
-
-      }
-
-
+function fn7(event) {
+  let computedStyle = getComputedStyle(les7);
+  let marginLeft = computedStyle.marginLeft;
+  marginLeft = parseInt(marginLeft);
+  marginLeft = marginLeft + 210;
+  if (marginLeft<=445) {
+    les7.style.marginLeft = marginLeft + "px";
+    if ((marginLeft>25)&&(marginLeft<445))  {
+   console.log(1);
     }
+    else {
+      console.log(2);
+    }
+  } else {
+    les7.style.marginLeft = "25px";
+    console.log(0);
+  }
+}
+
+
+
+
+
+
 
 
 
