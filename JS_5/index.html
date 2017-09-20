@@ -5,14 +5,14 @@
 	<title>JS 5</title>
 </head>
 <body>
-Задание 1. 
+Задание 1.
 <p>Ведіть строку: <input type="text" id="str1"></p>
 <button onclick="fn()" >ПУСК</button> <br>
 <span id="rez1"></span>
 
 	<hr>
 <span>Задание 2</span> <br> <br>
-	<button onclick="fnPic()">нажми</button> <br> 
+	<button onclick="fnPic()">нажми</button> <br>
 	<div id="box"></div>
 	<hr>
 <span>Задание 3</span>
@@ -25,12 +25,16 @@
 	<input  type="text" id="in4" placeholder="Ведіть URL"> <br>  <br>
 	<button onclick="fn2()">Старт</button>
 	<hr>
-<span>Задание 5</span>
+<span>Задание 5</span> <br>
 	<br>
-		
-	<input type="text" placeholder="Фамилия" id="surname"> <br> <br>
-	<input type="text" placeholder="Имя" id="name"> <br> <br>
-	<input type="text" placeholder="Пароль" id="pass"> <br> <br>
+	Last name: <br>
+	<input type="text" placeholder="Фамилия" id="surname"> <br>
+	First name: <br>
+	<input type="text" placeholder="Имя" id="name"> <br>
+	User password: <br>
+	<input type="password" placeholder="Пароль" id="pass">
+	 <br>
+	 Email <br>
 	<input type="mail" placeholder="Email" id="mail"> <br> <br>
 	<button onclick="fn3()">Отправить</button>
 	<hr>
@@ -39,7 +43,7 @@
 	<button onclick="fn4()"> нажми</button>
 
 
-		
+
 
 
 <script>
@@ -76,19 +80,19 @@ function fn() {
 	function fn2() {
 		let http1 = document.getElementById("in4").value;
 		let srez1 = (http1.indexOf("www" ));
-		
+
 		let srez2 = (http1.indexOf("/" ));
 		if (srez1>=0) {
 			alert(http1.substring(srez1+4));
-			} 
-			else if ((srez1<0)&&(srez2>=0)){ 
+			}
+			else if ((srez1<0)&&(srez2>=0)){
 				alert(http1.substring(srez2+2));
 			}
 			else {
 				alert(http1);
 			}
 		}
-			
+
 		function fn3() {
 			let name = document.getElementById("name").value;
 			let surname = document.getElementById("surname").value;
@@ -115,7 +119,7 @@ function fn() {
 					var alph= (mail).split("");
 					let count = 0;
 					for (var i = 0; i < alph.length; i++) {
-						
+
 						if ((alph[i]=="@")&&(alph[i]!=" ")) {
 							count = count +1;
 						}
@@ -123,10 +127,10 @@ function fn() {
 						else if (alph[i]==" ") {
 							alert("Удалите пробел в поле EMAIL")
 
-						} 
-			
+						}
+
 					}
-					
+
 					if (count>1) {
 						alert("в полі email ви ввели зайвий символ  @ ")
 					}
@@ -141,14 +145,14 @@ function fn() {
 				}
 			}
 
-			
+
 			function fn4() {
 
 			let in5 = document.getElementById("in5").value;
 			alert(in5.charCodeAt());
 
 
-				
+
 			}
 
 
