@@ -10,17 +10,24 @@
   <body>
     <form action="" method="post" name="Form">
       <div id="DynamicExtraFieldsContainer">
-
          <div class="DynamicExtraField">
-              <input class="inp" name="DynamicExtraField[]"></input>
-                <input type="button" id="addDynamicExtraFieldButton" value="+">
-
-            </div>
-                  </div>
+            <input class="inp" name="DynamicExtraField[]"></input>
+            <input type="button" id="addDynamicExtraFieldButton" value="+">
+        </div>
+      </div>
   </form>
+    <br>
+    <button type="button" id="getInf" name="собрать">Собрать</button> <br> <br>
+    <p><textarea id="rez"  rows="10" cols="45"></textarea></p> 
 
+    <form action="">
 
-    <button type="button" id="getInf" name="собрать">Собрать</button>
+        <p><input name="dzen" type="radio" value="nedzen"> Четные</p>
+        <p><input name="dzen" type="radio" value="dzen"> Не четные</p>
+        <p><input name="dzen" type="radio" value="pdzen" checked> Все</p>
+
+      </form>
+
 
 
 

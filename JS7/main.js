@@ -7,7 +7,6 @@ function addDynamicExtraField() {
         'class' : 'DynamicExtraField'
     }).appendTo($('#DynamicExtraFieldsContainer'));
     var br = $('<br/>').appendTo(div);
-
     var textarea = $('<input/>', {
         name : 'DynamicExtraField[]',
         'class' : 'inp'
@@ -17,17 +16,35 @@ function addDynamicExtraField() {
         type : 'button',
         'class' : 'DeleteDynamicExtraField'
     }).appendTo(div);
+
+    var zero = $('<span/>', {
+        html : '',
+        type : 'text',
+        'class' : 'notinfo'
+    }).appendTo(div);
+
     input.click(function() {
         $(this).parent().remove();
     });
 }
-
 $("#getInf").click(function(event) {
-  var list = $(".inp").value;
-  console.log(list);
 
-    return false;
+  $.each($('.inp'),function(){
+    if (this.value.length<1) {
+     this.style.border = "2px solid red";
+     $("span").html("Заполните");
+
+   } else {
+     this.style.border = "";
+      $("span").del;
+
+   }
+    });
+  let values = [];
+  $.each($('.inp'),function(){
+    if (this.value.length>0) {
+      values+=this.value + " " ;
+    }
+    });
+  $("#rez").val(values);
  });
- var listv = [];
-list = $("#getInf").val;
-console.log(list);
