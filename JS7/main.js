@@ -31,10 +31,10 @@ function addDynamicExtraField() {
 $("#getInf").click(function(event) {
 
   $.each($('.inp'), function() {
-    if (this.value.length==0) {
+    if (this.value.length == 0) {
       this.style.border = "2px solid red";
       let z = $(this).siblings("span");
-      z.html(" Заполните");
+      z.html(" Заполните поле");
     } else {
       this.style.border = "";
       $(this).siblings("span").html("");
@@ -50,19 +50,54 @@ $("#getInf").click(function(event) {
 });
 
 
-$("#check1:radio").on("change", function(){
+$("#check1:radio").on("change", function() {
   $(".inp1").attr('class', 'inp');
   $(".inp:even").attr('class', 'inp1');
-
-
- });
-
-$("#check2:radio").on("change", function(){
-    $(".inp1").attr('class', 'inp');
+});
+$("#check2:radio").on("change", function() {
+  $(".inp1").attr('class', 'inp');
   $(".inp:odd").attr('class', 'inp1');
 });
 
+$("#check3:radio").on("change", function() {
+  $(".inp1").attr('class', 'inp');
+});
+$("#but4").click(function(event) {
+  $("#les4 span").html("");
+  $(".les4-1").css("display", "block");
+});
+$("#op1").click(function(event) {
+  $("#les4 span").html("");
+  $(".les4-1").css("display", "none");
+  $("#les4 span").html("Вы выбрали опцию 1");
+});
+$("#op2").click(function(event) {
+  $("#les4 span").html("");
+  $(".les4-1").css("display", "none");
+  $("#les4 span").html("Вы выбрали опцию 2");
+});
 
+$("#but5").click(function addSpisok() {
+  var jq = $('#les5-1').val();
+  let newLi = $('<li"> ' + jq + ' </li>').on("click", function() {
+    let font = this.style.background;
+    $(this).css("cursor", "pointer");
+    if (font == "") {
+      $(this).css("background", "#F2190A");
+    } else {
+      $(this).css("background", "");
+    };
+  });
 
-$("#check3:radio").on("change", function(){
-    $(".inp1").attr('class', 'inp'); });
+  $('#les5').append(newLi);
+  $('#les5-1').val('');
+})
+
+$("#les5  li").click(function fn4() {
+  let font = this.style.background;
+  if (font == "") {
+    $(this).css("background", "#F2190A");
+  } else {
+    $(this).css("background", "");
+  }
+});
