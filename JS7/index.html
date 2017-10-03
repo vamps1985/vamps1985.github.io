@@ -1,66 +1,87 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>JS7</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="jquery-3.2.1.min.js"></script>
 
+<head>
+  <meta charset="utf-8">
+  <title>JS7</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.2.1.min.js"></script>
+  <meta name="keywords" content="234">
+  <meta name="description" content="swegweg">
+  <meta name="title" content="">
 
-  </head>
-  <body>
-    <form action="" method="post" name="Form">
-      <div id="DynamicExtraFieldsContainer">
-         <div class="DynamicExtraField">
-            <input class="inp" name="DynamicExtraField[]"></input>
-            <input type="button" id="addDynamicExtraFieldButton" value="+">
-            <span></span>
-        </div>
+</head>
+
+<body>
+  <form action="" method="post" name="Form">
+    <div id="DynamicExtraFieldsContainer">
+      <div class="DynamicExtraField">
+        <input class="inp" name="DynamicExtraField[]"></input>
+        <input type="button" id="addDynamicExtraFieldButton" value="+">
+        <span></span>
       </div>
+    </div>
   </form>
-    <br>
-    <button type="button" id="getInf" name="собрать">Собрать</button> <br> <br>
-    <p><textarea id="rez"  rows="10" cols="45"></textarea></p>
+  <br>
+  <button type="button" id="getInf" name="собрать">Собрать</button> <br> <br>
+  <p><textarea id="rez" rows="10" cols="45"></textarea></p>
 
-    <form action="">
+  <form action="">
+    <p><input name="1" id="check1" type="radio"> Четные</p>
+    <p><input name="1" id="check2" type="radio"> Не четные</p>
+    <p><input name="1" id="check3" type="radio" checked> Все</p>
+  </form>
+  <div id="les4">
+    <button type="button" name="button" id="but4">Задание 4</button>
+    <div class="les4-1">
+      <button type="button" id="op1" name="button">Опция 1</button>
+      <button type="button" id="op2" name="button">Опция 2</button>
+    </div> <br>
+    <span></span>
+  </div>
+  <br>
+  <ul id="les5">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+  </ul>
 
-        <p><input name="1" id="check1" type="radio" > Четные</p>
-        <p><input name="1" id="check2" type="radio" > Не четные</p>
-        <p><input name="1" id="check3" type="radio" checked> Все</p>
+  <input type="text" id="les5-1" name="" value="">
+  <button type="button" id="but5" name="button">Добавить елемент в список</button>
+  <div class="les6">
+    <img src="img/kevin.jpg" class="lesimg" alt="kevin">
+    <p class="les6-1">
+      Lorem ipsum dolor sit amet, consectetur adipisicing
+    </p>
+  </div>
+  <div class="les7">
+    <img src="img/1.png" alt="1">
+    <img src="img/2.png" alt="2">
+    <img src="img/3.png" alt="">
+    <img src="img/4.png" alt="4">
+    <img src="img/5.png" alt="">
+  </div> <br>
+  <a href="#" title="2" target="3">Cилка 1</a>
+  <a href="#">Cилка 2</a>
+  <a href="#">Cилка 3</a> <br>
+  <h2 class="rez6"></h2> <br>
+  <div id="les9">
+    <button type="button" id="les9-1" name="button">Задание 9</button>
+  </div> <br>
+  <div id="les10">
+    <button type="button" id="les10-1" name="button">Задание 10</button> <br>
+    <span class="les10-2"></span>
+  </div>
 
-      </form>
-<div id="les4">
-
-
-      <button type="button" name="button" id="but4">Задание 4</button>
-      <div class="les4-1">
-        <button type="button" id="op1" name="button">Опция 1</button>
-        <button type="button" id="op2" name="button">Опция 2</button>
-      </div> <br>
-      <span></span>
-      </div>
-      <br>
-
-      <ul id="les5">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-      </ul>
-
-      <input type="text" id="les5-1" name="" value="">
-      <button type="button" id="but5" name="button">Добавить елемент в список</button>
-
-
-
-
-
+  <h1></h1>
+  <h4></h4>
 
 
 
 
 
+  <script src="main.js" charset="utf-8"></script>
+</body>
 
-    <script src="main.js" charset="utf-8"></script>
-  </body>
 </html>
