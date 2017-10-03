@@ -3,7 +3,6 @@
   cursor: pointer;
 }
 
-
 .del {
     cursor: pointer;
 }
@@ -34,4 +33,42 @@ ul li {
     padding: 5px;
 
   cursor: pointer;
+}
+.les6 {
+  max-height: 375px;
+  width: 500px;
+  box-sizing: border-box;
+
+}
+.lesimg {
+  width: 100%;
+  z-index: 2;
+  box-sizing: border-box;
+  padding: 5px;
+}
+.les6-1 {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: relative;
+  top: -200px;
+  left: 300px;
+  display: none;
+
+  z-index: 1;
+}
+.les7  {
+
+
+}
+.les7 img {
+
+  width: 100px;
+
+}
+.img1 {
+box-shadow: 10px 10px 5px 5px #FF230A;
+}
+.h2 {
+  color: red;
 }
