@@ -1,3 +1,8 @@
+
+
+
+
+
 $('#addDynamicExtraFieldButton').click(function(event) {
   addDynamicExtraField();
   return false;
@@ -61,16 +66,17 @@ $("#check3:radio").on("change", function() {
 });
 $("#but4").click(function(event) {
   $("#les4 span").html("");
-  $(".les4-1").css("display", "block");
+  $(".les4-1").show(500);
 });
+
 $("#op1").click(function(event) {
   $("#les4 span").html("");
-  $(".les4-1").css("display", "none");
+  $(".les4-1").hide(500);
   $("#les4 span").html("Вы выбрали опцию 1");
 });
 $("#op2").click(function(event) {
   $("#les4 span").html("");
-  $(".les4-1").css("display", "none");
+    $(".les4-1").hide(500);
   $("#les4 span").html("Вы выбрали опцию 2");
 });
 
@@ -99,7 +105,7 @@ $("#les5  li").click(function fn4() {
 });
 
 $(".les6").mouseenter(function() {
-  $(".les6-1").show();
+  $(".les6-1").show(1000);
 }).mouseleave(function() {
   $(".les6-1").hide(1000);
 })
