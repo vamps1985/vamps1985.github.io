@@ -14,23 +14,13 @@ if ((localStorage.getItem('accept')==null)||(localStorage.getItem('accept')=="no
   function func() {
   let z = $("#les3_1").show();
 }
-
 }
-
-
-
-
-
-
-
   $('link').attr('href', '');
   if (localStorage["style"]) {
     var foo = localStorage["style"];
-
     $("head").append($("<link rel='stylesheet' href=" + foo + " type='text/css' media='screen' />"));
 
   } else {
-
   }
   if (window.localStorage) {
     console.log("Підтримує");
@@ -59,6 +49,19 @@ $(".style").on("change", function() {
   }
 });
 
+$("#les5").bind("click", function() {
+  let ul = $("#les5_1");
+  let local = localStorage;
+$("#les5_1").empty();
+  for (var key in local) {
+    let les6_1 = $('<li>', {
+      html: (key + ": " + local[key])
+    }).appendTo(ul);
+
+  }
+
+
+})
 
 
 
