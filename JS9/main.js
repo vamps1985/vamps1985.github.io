@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
   $("#les1").bind("click", function() {
     let a = prompt("Введите первое число");
@@ -11,7 +12,7 @@ $(document).ready(function() {
         alert(data);
       }
     });
-  })
+  });
 
 $("#les2").click(function() {
   let input = $("#year").val();
@@ -28,14 +29,14 @@ $("#les2").click(function() {
   else {
     $("#rez2").html("Вы неверно ввели год рождения");
   }
-})
+});
 function fn2(data) {
   $("#rez2").html(data);
 }
 });
 $("#les3").click(function() {
   let sex1 = $(".sex");
-  for (let i = 0; i < sex1.length; i++) {
+  for (var i = 0; i < sex1.length; i++) {
     if (sex1[i].checked) {
       let input = $("#h").val();
       let sex = $(sex1[i]).attr("id");
@@ -56,7 +57,7 @@ function fn1() {
   $("#h").attr("value", $("#rh").val());
 }
 $("#sendMail").on("click", function() {
-  var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+  let pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
   if (($("#fio").val()!="")&&(pattern.test($('#email').val()))&&($("#phone").val()!=""))
  {
    $.ajax ({
@@ -69,7 +70,7 @@ $("#sendMail").on("click", function() {
      }
    });
   } else {
-     alert("Вы неверно заполнили поля")
+     alert("Вы неверно заполнили поля");
   }
 });
   $(".les6").bind("change", function() {
@@ -84,5 +85,4 @@ $("#sendMail").on("click", function() {
     }
   }
 );
-
 });
