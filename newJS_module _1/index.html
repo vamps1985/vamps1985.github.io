@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>New JS1</title>
+  </head>
+  <body>
+    <div id="head">
+
+    </div>
+    <script type="text/javascript">
+    "use strict";
+    const str1 = "qwertyuiop[]";
+    const str2 = "asdfghjkl;\'\\";
+    const str3 = "zxcvbnm,./";
+    let lenstr1 = str1.length;
+    let lenstr2 = str2.length;
+    let lenstr3 = str3.length;
+    let firststr1 = str1.charAt(0);
+    let laststr1 = str1[lenstr1 - 1];
+    let firststr2 = str2.charAt(0);
+    let laststr2 = str2[lenstr2 - 1];
+    let firststr3 = str3.charAt(0);
+    let laststr3 = str3[lenstr3 - 1];
+    let findsymbol1 = str1.indexOf("[");
+    let findsymbol1_2 = str1.indexOf("]");
+    let result = `
+    <p> str1 is ${str1} </p>
+    <p> str2 is ${str2} </p>
+    <p> str3 is ${str3} </p>
+    <p> len str1 is ${lenstr1} </p>
+    <p> len str2 is ${lenstr2} </p>
+    <p> len str2 is ${lenstr3} </p>
+    <p> first symbol in str1 = ${firststr1} and last symbol = ${laststr1} </p>
+    <p> first symbol in str2 = ${firststr2} and last symbol = ${laststr2} </p>
+    <p> first symbol in str3 = ${firststr3} and last symbol = ${laststr3} </p>
+    <p> for symbol "[" in str1 index is ${findsymbol1}, and for symbol "]" index ${findsymbol1_2} </p>
+    `;
+    console.log(result);
+    document.body.innerHTML  = result;
+    </script>
+  </body>
+</html>
