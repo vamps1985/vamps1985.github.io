@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Дополнительное задание к модулю 3</title>
+</head>
+
+<body>
+  <h2>Дополнительное задание к модулю 3</h2>
+  <button type="button" onclick="fn1()" name="button">Задание 1</button> <br> <br>
+  <button type="button" onclick="fn2()" name="button">Задание 2</button> <br> <br>
+  <button type="button" onclick="fn3()" name="button">Задание 3</button> <br> <br>
+  <button type="button" onclick="fn4()" name="button">Задание 4</button> <br> <br>
+  <button type="button" onclick="fn5()" name="button">Задание 5</button> <br> <br>
+
+  <script type="text/javascript">
+    function fn1() {
+      /*
+  Есть массив имен пользователей.
+  В первом console.log вывести длину массива
+  испольуя свойство length.
+
+  В последующих console.log дополнить конструкцию
+  так, чтобы в консоль вывелить указаные в комментариях
+  элементы массива.
+*/
+
+      const users = ['Mango', 'Poly', 'Ajax', 'Chelsey'];
+
+      console.log(users.length); // 4
+      console.log(users[1]); // Poly
+      console.log(users[3]); // Chelsey
+      console.log(users[0]); // Mango
+      console.log(users[2]); // Ajax
+    }
+
+    function fn2() {
+      /*
+  Есть массив имен пользователей.
+  Используя методы массива выполнить
+  следующие операции.
+*/
+      let users = ['Mango', 'Poly', 'Ajax', 'Chelsey'];
+      // Удалить из начала массива нулевой элемент и вывести в консоль результат.
+      users.shift();
+      console.log(users); // ["Poly", "Ajax", "Chelsey"]
+
+      // Удалить из конца массив последний элемент и вывести в консоль результат.
+      users.pop()
+      console.log(users); // ["Poly", "Ajax"]
+      // Добавить в начало массива любое имя
+      users.unshift("Pedro");
+      console.log(users); // ["добавленое имя", "Poly", "Ajax"]
+
+      // Добавить в конец массива два любых имени за одну операцию
+      users.push("Hulio", "Kevin");
+      console.log(users); //  ["добавленое ранее имя", "Poly", "Ajax", "имя 1", "имя 2"]
+
+    }
+
+    function fn3() {
+      /*
+  Есть строка, используя методы строки
+  преобразовать ее в массив.
+  Вывести в консоль длину массива.
+  Используя цикл, перебрать массив
+  и последовательно вывести элементы
+  массива в консоль.
+*/
+
+      const string = "qwerty";
+
+      let arr = [];
+
+      for (var i = 0; i < string.length; i++) {
+        arr.push(string[i])
+      }
+      // Составить массив из строки и записать в переменную arr
+      console.log(arr); // ["q", "w", "e", "r", "t", "y"]
+      // Вывести в консоли общую длину массива arr
+      console.log(arr.length); // 6
+      // Вывести в консоли все индексы массива arr
+      for (let i = 0; i < arr.length; i += 1) {
+        console.log(i); // последовательный вывод 0 1 2 3 4 5
+      }
+      // Вывести в консоли все элементы массива arr
+      for (let i = 0; i < arr.length; i += 1) {
+        console.log(arr[i]); // последовательный вывод q w e r t y
+      }
+      // Вывести в консоли пары индекс:значение
+      for (let i = 0; i < arr.length; i += 1) {
+        console.log(i + ":" + arr[i]); // последовательный вывод 0:q 1:w 2:e 3:r 4:t 5:y
+      }
+    }
+
+    function fn4() {
+      /*
+  Есть массив чилео numbers.
+  Просим пользователя ввести цифру от 1 до 5,
+  но пользователь может ввести что угодно.
+
+  Необходимо проверить что было введено.
+  Преобразовать input в числовой тип.
+  Проверить число ли это.
+
+  Если нет - выводим alert с сообщением о том,
+  что было введено не число
+
+  Если да - проверить содержит ли в себе
+  массив numbers это число.
+  Если содержит - выводим alert с успехом.
+  Есл не содержит - выводим alert с неудачей.
+*/
+
+      const numbers = [1, 2, 3, 4, 5];
+      let input = parseInt(prompt("введите цифру от 1 до 5"));
+
+      // Раскомментрировать строку
+      // const input = prompt("Введите цифру между 1 и 5: ", "");
+
+      let count = 0;
+      if (!(isNaN(input))) {
+        for (var i = 0; i < numbers.length; i++) {
+          if (numbers[i] == input) {
+            count = count + 1;
+            break;
+          } else {
+          }
+        }
+        if (count == 1) {
+          alert("Такая цифра в массиве есть!");
+        } else {
+          alert("Такой цифры в массиве нет!");
+        }
+      } else {
+        alert("Было введено не число!");
+      }
+    }
+
+    function fn5() {
+      // Есть двумерный массив. Перебрать массив в цикле и составить из элементов все подмассивов строку.
+
+// Первая строка будет иметь вид "abcxyz"
+// Вторая строка будет иметь вид "axbycz"
+const letters = [
+  ['a', 'b', 'c'],
+  ['x', 'y', 'z']
+];
+let str1 = "";
+let str2 = "";
+for (var i = 0; i < letters.length; i++) {
+  let x = letters[i];
+
+
+for (var c = 0; c < x.length; c++) {
+
+  str1 = str1 + (x[c]);
+}
+}
+console.log(str1);
+for (var f = 0; f < letters.length; f++) {
+  let x = letters[f];
+  for (let i = 0; i < x.length; i++) {
+    console.log(f.indexOf(x[i]));
+  }
+
+}
+
+    }
+
+  </script>
+
+</body>
+
+</html>

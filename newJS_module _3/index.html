@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <script type="text/javascript">
+    const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
+    let keyboard = [
+      [alphabet.slice(0, 12)],
+      [alphabet.slice(12, 23)],
+      [alphabet.slice(23)]
+    ];
+    let javascript = ((keyboard[1])[0]).charAt(6) +
+      ((keyboard[1])[0]).charAt(0) +
+      ((keyboard[2])[0]).charAt(3) +
+      ((keyboard[1])[0]).charAt(0) +
+      ((keyboard[1])[0]).charAt(1) +
+      ((keyboard[2])[0]).charAt(2) +
+      ((keyboard[0])[0]).charAt(3) +
+      ((keyboard[0])[0]).charAt(7) +
+      ((keyboard[0])[0]).charAt(9) +
+      ((keyboard[0])[0]).charAt(4);
+
+    let hello = ((keyboard[1])[0]).charAt(5) +
+      ((keyboard[0])[0]).charAt(2) +
+      ((keyboard[1])[0]).charAt(8) +
+      ((keyboard[1])[0]).charAt(8) +
+      ((keyboard[0])[0]).charAt(8);
+
+    let trainer = ((keyboard[0])[0]).charAt(4) +
+      ((keyboard[0])[0]).charAt(3) +
+      ((keyboard[1])[0]).charAt(0) +
+      ((keyboard[0])[0]).charAt(7) +
+      ((keyboard[2])[0]).charAt(5) +
+      ((keyboard[0])[0]).charAt(2) +
+      ((keyboard[0])[0]).charAt(3);
+    console.log(hello);
+    console.log(javascript);
+    console.log(trainer);
+  </script>
+
+</body>
+
+</html>

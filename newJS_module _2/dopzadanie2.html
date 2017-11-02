@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Дополнительное задание 2</title>
+  <style media="screen">
+    :root {
+      --fz: 32px;
+    }
+
+    body {
+      background-color: #434B48;
+      font-size: var(--fz);
+      font: monospace;
+      color: #ccc;
+    }
+
+    .wrapper {
+      width: 400px;
+      margin: auto;
+    }
+
+    span {
+      display: inline-block;
+      width: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>Дополнительное задание 2</h2>
+  <button type="button" onclick="fn1()" name="button">Задание 1</button> <br> <br>
+  <button type="button" onclick="fn2()" name="button">Задание 2</button> <br> <br>
+  <button type="button" onclick="fn3()" name="button">Задание 3</button> <br> <br>
+  <button type="button" onclick="fn4()" name="button">Задание 4</button> <br> <br>
+
+
+  <div class="wrapper">
+    <h2>
+      <span class="hour">00</span> :
+      <span class="min" >00</span> :
+      <span class="sec" >00</span> :
+      <span class="msec">000</span>
+    </h2>
+  </div>
+
+  <script type="text/javascript">
+    function fn1() {
+      const winner = Math.floor(Math.random() * (250 - 1 + 1)) + 1;
+      console.log(`Победитель является обладателем номера ${winner}!`);
+    }
+
+    function fn2() {
+      let num = parseInt(prompt("Введите число от 0 до 5"));
+      let res;
+      switch (num) {
+        case 1:
+          res = "Каталог хостелов";
+          break;
+        case 2:
+          res = "Каталог бюджетных отелей";
+          break;
+        case 3:
+          res = "Каталог отелей ***";
+          break;
+        case 4:
+          res = "Каталог отелей ****";
+          break;
+        case 5:
+          res = "Каталог лучших отелей";
+          break;
+        default:
+          res = "Каталог палаток)))";
+      }
+      console.log(`Вашему вниманию предлагается ${res}!`)
+    }
+
+    function fn3() {
+
+      const days = 14;
+      const rate = 50;
+      let discount;
+      let cost;
+
+      // Расскоментируйте значение для проверки корректности вашего условия
+      // discount = undefined;
+      //discount = -0;
+      //discount = +0;
+      //discount = NaN;
+      //discount = false;
+
+      // Напишите проверку, которая не допустит деления на все falsy значения
+      if ((((discount !== 0) && (discount !== undefined)) && ((discount !== -0) && (!(Number.isNaN(discount))))) && (discount !== false)) {
+        cost = days * rate / discount;
+      } else {
+        cost = days * rate;
+      }
+      console.log(`cost = ${cost}`)
+    }
+
+    function fn4() {
+      const num = parseInt(Math.random() * 100);
+      const res = num % 2 === 0 ? "odd" : "even";
+      console.log(`${num} is ${res}`);
+
+    }
+
+
+    /*
+  Найдите и исправьте одну ошибку в коде,
+  чтобы вывод секунд был всегда
+  2-х значным числом (добавить '0')
+  и вывод милисекунд был всегда
+  3-х значным числом (добавить '0' или '00')
+*/
+
+    // функция для вывода времени на экран
+    function start() {
+      // получение текущего времени
+      let d = new Date();
+
+      // Начало блока для правок
+      // вывод секунд
+      tableS.textContent = d.getSeconds() < 10 ? "0" + d.getSeconds() : d.getSeconds();
+      // вывод милисекунд
+      let m = d.getMilliseconds();
+      if (m < 10) {
+        m = m + "00";
+      } else if ((m < 100) && (m > 10)) {
+        m = m + "0";
+      }
+      tableMS.textContent = m;
+      // конец блока для правок
+
+      // вывод часов в виде 2-х значного числа
+      tableH.textContent = d.getHours() < 10 ? "0" + d.getHours() : d.getHours();
+
+      // вывод минут в виде 2-х значного числа
+      tableM.textContent = d.getMinutes() < 10 ?
+        "0" + d.getMinutes() :
+        d.getMinutes();
+    }
+
+    // поиск элемента DOM
+    const tableH = document.querySelector(".hour");
+    const tableM = document.querySelector(".min");
+    const tableS = document.querySelector(".sec");
+    const tableMS = document.querySelector(".msec");
+
+    // вызов функции start каждые 33мс
+    setInterval(start, 33);
+  </script>
+</body>
+
+</html>

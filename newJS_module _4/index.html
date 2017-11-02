@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Модуль 4</title>
+  </head>
+  <body>
+    <h2>Модуль 4</h2>
+    <button type="button" onclick="fn1()" name="button">Задание 1</button> <br><br>
+    <button type="button" onclick="fn2()" name="button">Задание 2</button> <br><br>
+    <button type="button" name="button">Задание 3</button> <br><br>
+
+    <script type="text/javascript">
+  const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
+
+
+  fun1(alphabet);
+    function fun1(a) {
+      const keyboard = [
+        [a.slice(0, 12)],
+        [a.slice(12, 23)],
+        [a.slice(23)]
+      ];
+      console.log(keyboard);
+    }
+function fn2() {
+  let row = prompt("введите номер строки клавиатуры от 1 до 3");
+  row = row - 1;
+  getRandCharInRow(row);
+  function getRandCharInRow(a) {
+    console.log(a);
+    let str = ((keyboard[a])[0]);
+    console.log(str);
+
+
+  }
+
+
+
+}
+
+    </script>
+  </body>
+</html>

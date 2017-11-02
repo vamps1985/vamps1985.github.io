@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>new js2</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    let city = {
+      sharm: 15,
+      hurgada: 25,
+      taba: 6
+    }
+    let people = prompt("введите количество групы");
+    if (!((people ^ 0) != people) && (people > 0)) { 
+      for (var variable in city) {
+        console.log(city[variable]);
+        if ((city[variable] - people) >= 0) {
+          let z = confirm("Вы можете поехать в " + variable);
+          if (z === true) {
+            city[variable] = city[variable] - people;
+            console.log(city[variable]);
+            alert("в " + variable + " осталось мест " + city[variable])
+            break;
+          }
+        } else {
+          alert("Нет мест");
+          break;
+        }
+      }
+    } else {
+      alert("Помилка, Ви некоректно ввели кількість учасників групи");
+    }
+  </script>
+</body>
+
+</html>
