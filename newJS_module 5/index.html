@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Модуль 5</title>
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    const alphabetEn = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
+    const alphabetRu = "йцукенгшщзхъфывапролджэ\\ячсмитьбю.";
+    const alphabetUa = "йцукенгшщзхїфівапролджє\\ячсмитьбю.";
+    const keyboard = {
+      layouts: {
+        en: {
+          topRow: [],
+          middleRow: [],
+          bottomRow: []
+        },
+        ru: {
+          topRow: [],
+          middleRow: [],
+          bottomRow: []
+        },
+        ua: {
+          topRow: [],
+          middleRow: [],
+          bottomRow: []
+        }
+      },
+      langs: ['en', 'ru', 'ua'],
+      currentLang: ''
+    };
+
+    function addkey(a) {
+      return {
+        topRow: (a.slice(0, 12)),
+        middleRow: (a.slice(12, 23)),
+        bottomRow: (a.slice(23))
+      }
+    }
+    keyboard.layouts.en = addkey(alphabetEn);
+    keyboard.layouts.ru = addkey(alphabetRu);
+    keyboard.layouts.ua = addkey(alphabetUa);
+
+    inp();
+
+    function inp() {
+      let currentLang = prompt(`Введите букву алфавита какую хотите использовать
+      en-0
+      ru-1
+      ua-2`);
+
+      currentLang = parseInt(currentLang);
+      currentLang = currentLang + 1;
+      if (((currentLang >= 1) && (currentLang <= 3)) && ((currentLang != ""))) {
+
+        switch (currentLang) {
+          case 1:
+            keyboard.currentLang = "en";
+            break;
+          case 2:
+            keyboard.currentLang = "ru";
+            break;
+          case 3:
+            keyboard.currentLang = "ua";
+            break;
+          default:
+        }
+      } else {
+        alert("был выбран не доступный язык");
+        return inp();
+      }
+    }
+    let lang = keyboard.currentLang.replace('"', '');
+
+    getRandCharInAlph(lang);
+
+    function getRandCharInAlph(a) {
+      let mass = (keyboard.layouts[a]);
+      let str1 = "";
+      for (i in mass) {
+        let x = mass[i];
+        for (variable in x) {
+          str1 = str1 + (x[variable]);
+        }
+      };
+      let randomIn = Math.floor(Math.random() * (str1.length - 0)) + 0;
+      alert("Случайный символ с выбраной Вами клавыатуры " + str1[randomIn]);
+    };
+  </script>
+
+</body>
+
+</html>
