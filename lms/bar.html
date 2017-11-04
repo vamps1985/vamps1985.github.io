@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>statu bar</title>
+    <style media="screen">
+      .bar {
+        width: 600px;
+        border: 1px solid black;
+        margin-top: 10px;
+      }
+      .form {
+        border: 1px solid black;
+        margin-top: 50px;
+        width: 350px;
+        text-align: center;
+        padding-top: 10px;
+
+
+
+
+      }
+      .proc {
+        float: right;
+      }
+      </style>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h2>FE3</h2>
+    <div class="bar">
+      <span class="proc">65%</span>
+      <div class="bar1"   style="background-color:powderblue;";>
+        <span>HTML</span>
+      </div>
+
+    </div>
+    <div class="bar">
+      <span class="proc">30%</span>
+      <div class="bar1" style="background-color:green;";>
+        <span>JS</span>
+      </div>
+
+    </div>
+    <div class="bar">
+      <span class="proc">50%</span>
+      <div class="bar1" style="background-color:red;";>
+        <span>Jquery</span>
+      </div>
+
+    </div>
+  </div>
+  <div class="bar">
+    <span class="proc">80%</span>
+    <div class="bar1" style="background-color:orange;";>
+      <span>djfghdb</span>
+    </div>
+    </div>
+
+<div class="form">
+    <span>Фамилия  <input type="text" placeholder="Фамилия" id="surname"></span> <br> <br>
+    	<span>Имя <input type="text" placeholder="Имя" id="name"> </span> <br>  <br>
+    	<span>Пароль <input type="password" placeholder="Пароль" id="pass"> </span> <br> <br>
+      <span>Повторить пароль <input type="password" placeholder="Повторить пароль" id="pass"> </span>
+    	<br> <br>
+    	<span>Email<input type="mail" placeholder="Email" id="mail"> </span> <br> <br>
+    <span> Согласен с условиями соглашения <input type="checkbox" name="Согласен с условиями соглашения" value=""> </span> <br> <br>
+    	<button onclick="fn3()">Зарегестрироватся</button>
+
+</div>
+    <script type="text/javascript">
+    $(".bar").each(function() {
+    let proc = $(this).find(".proc").html();
+      $(this).find(".bar1").css({'width' : proc});
+
+});
+    let proc = $(".proc").html();
+    function fn3() {
+      let name = document.getElementById("name").value;
+      let surname = document.getElementById("surname").value;
+      let pass = document.getElementById("pass").value;
+      var mail = document.getElementById("mail").value;
+
+      surname = surname.trim();
+      pass = pass.trim();
+      mail = mail.trim();
+      name = name.trim();
+
+      fn4();
+
+      function fn4() {
+        if (!surname) {
+          document.getElementById("surname").style.border = "2px solid red";
+          alert("Поле фамилия не заполнено");
+          return false;
+
+        } else {
+          document.getElementById("surname").style.border = "";
+        }
+        if (!name) {
+          document.getElementById("name").style.border = "2px solid red";
+          alert("Поле имя не заполнено");
+          return false;
+        } else {
+          document.getElementById("name").style.border = "";
+        }
+        if (pass.length >= 5) {
+          document.getElementById("pass").style.border = "";
+          return fnmal();
+        } else {
+          document.getElementById("pass").style.border = "2px solid red";
+          alert("Пароль має бути не менше 5 символів")
+          return false;
+        }
+
+        function fnmal() {
+          if ($('#mail').val() != '') {
+            var pattern = /^([a-z0-9_\.-])+@[a-z0-9-]+\.([a-z]{2,4}\.)?[a-z]{2,4}$/i;
+            if (pattern.test($('#mail').val())) {
+              $('#mail').css({
+                'border': ''
+              });
+              return true;
+            } else {
+              $('#mail').css({
+                'border': '2px solid #ff0000'
+              });
+              alert('Поле email заполнено не верно');
+            }
+          } else {
+            $('#mail').css({
+              'border': '2px solid #ff0000'
+            });
+            alert('Поле email не заполнено');
+          }
+        };
+      }
+    }
+
+
+    </script>
+  </body>
+</html>
