@@ -6,8 +6,9 @@
     <style media="screen">
       .bar {
         width: 600px;
-        border: 1px solid black;
+      border: 1px solid black;
         margin-top: 10px;
+        height: 20px;
       }
       .form {
         border: 1px solid black;
@@ -20,40 +21,47 @@
 
 
       }
+      .bar1 {
+        width: 0px;
+        height: 20px;
+
+      }
       .proc {
         float: right;
+      margin-right: 10px;
       }
       </style>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
   <body>
     <h2>FE3</h2>
     <div class="bar">
-      <span class="proc">65%</span>
+
       <div class="bar1"   style="background-color:powderblue;";>
-        <span>HTML</span>
+        <span>HTML</span> <span class="proc">100%</span>
       </div>
 
     </div>
     <div class="bar">
-      <span class="proc">30%</span>
+
       <div class="bar1" style="background-color:green;";>
-        <span>JS</span>
+        <span>JS</span> <span class="proc">30%</span>
       </div>
 
     </div>
     <div class="bar">
-      <span class="proc">50%</span>
+
       <div class="bar1" style="background-color:red;";>
-        <span>Jquery</span>
+        <span>Jquery</span><span class="proc">50%</span>
       </div>
 
     </div>
   </div>
   <div class="bar">
-    <span class="proc">80%</span>
+
     <div class="bar1" style="background-color:orange;";>
-      <span>djfghdb</span>
+      <span>djfghdb</span> <span class="proc">80%</span>
     </div>
     </div>
 
@@ -64,6 +72,7 @@
       <span>Повторить пароль <input type="password" placeholder="Повторить пароль" id="pass"> </span>
     	<br> <br>
     	<span>Email<input type="mail" placeholder="Email" id="mail"> </span> <br> <br>
+      <div class="g-recaptcha" data-sitekey="your_site_key"></div>
     <span> Согласен с условиями соглашения <input type="checkbox" name="Согласен с условиями соглашения" value=""> </span> <br> <br>
     	<button onclick="fn3()">Зарегестрироватся</button>
 
@@ -71,7 +80,7 @@
     <script type="text/javascript">
     $(".bar").each(function() {
     let proc = $(this).find(".proc").html();
-      $(this).find(".bar1").css({'width' : proc});
+      $(this).find(".bar1").animate({width: proc}, 2000 );
 
 });
     let proc = $(".proc").html();
