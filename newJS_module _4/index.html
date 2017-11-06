@@ -8,15 +8,14 @@
 
 <body>
   <h2>Модуль 4</h2>
-
   <button type="button" onclick="fun2()" name="button">Задание 2</button> <br><br>
   <button type="button" onclick="getRandCharInAlph()" name="button">Задание 3</button> <br><br>
 
   <script type="text/javascript">
-
-      "use strict";
+    "use strict";
     const alphabet = "qwertyuiop[]asdfghjkl;'zxcvbnm,./";
     let keyboard = addKeyboardLayout(alphabet);
+
     function addKeyboardLayout(a) {
       return ([
         [a.slice(0, 12)],
@@ -24,19 +23,28 @@
         [a.slice(23)]
       ]);
     }
+
     function fun2() {
-      let row = prompt("введите номер строки клавиатуры от 1 до 3");
-      row = row - 1;
-      getRandCharInRow(row);
-      function getRandCharInRow(a) {
-        let str = ((keyboard[a])[0]);
-        let randomIn = Math.floor(Math.random() * (str.length - 0)) + 0;
-        alert("случайный символ с выбраного ряда клвиатуры = " + str[randomIn]);
+      let row = parseInt(prompt("введите номер строки клавиатуры от 1 до 3"));
+      if ((row >= 1) && (row <= 3)) {
+        row = row - 1;
+        getRandCharInRow(row);
+
+        function getRandCharInRow(a) {
+          let str = ((keyboard[a])[0]);
+          let randomIn = Math.floor(Math.random() * (str.length - 0)) + 0;
+          alert("случайный символ с выбраного ряда клвиатуры = " + str[randomIn]);
+        }
+
+        function getRandCharInAlph() {
+          let randomIn = Math.floor(Math.random() * (alphabet.length - 0)) + 0;
+          alert("случайный символ со всего алфавита = " + alphabet[randomIn]);
+        }
+
+      } else {
+        alert("Вы ввели неверный номер строки");
+
       }
-    }
-    function getRandCharInAlph() {
-      let randomIn = Math.floor(Math.random() * (alphabet.length - 0)) + 0;
-      alert("случайный символ со всего алфавита = " + alphabet[randomIn]);
     }
   </script>
 </body>
