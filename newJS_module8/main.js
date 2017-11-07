@@ -44,10 +44,13 @@ for (let x = 0; x < arr.length; x++) {
     for (var v = 0; v < muz.length; v++) {
       let s = muz[v].getAttribute("data-note");
       if (but_sound==s) {
+        muz[v].pause();
+        muz[v].currentTime = 0;
+
 
       muz[v].play();
-      
-        //s.setAttribute(play,);
+
+
 
       }
 
