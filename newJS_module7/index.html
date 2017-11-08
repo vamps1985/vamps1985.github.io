@@ -43,6 +43,15 @@
       }
     }
     keyboard.layouts.en = addkey(alphabetEn);
+    if (keyboard.currentLang != "en") {
+      function addkey(a) {
+        return {
+          topRow: (a.slice(0, 12)),
+          middleRow: (a.slice(12, 24)),
+          bottomRow: (a.slice(24))
+        }
+      }
+    }
     keyboard.layouts.ru = addkey(alphabetRu);
     keyboard.layouts.ua = addkey(alphabetUa);
 
@@ -57,7 +66,6 @@
       currentLang = parseInt(currentLang);
       currentLang = currentLang + 1;
       if (((currentLang >= 1) && (currentLang <= 3)) && ((currentLang != ""))) {
-
         switch (currentLang) {
           case 1:
             keyboard.currentLang = "en";
@@ -97,7 +105,6 @@
         }
       }
     }
-  
   </script>
 
 </body>
