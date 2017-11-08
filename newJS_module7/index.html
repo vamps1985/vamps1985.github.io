@@ -55,17 +55,18 @@
     keyboard.layouts.ru = addkey(alphabetRu);
     keyboard.layouts.ua = addkey(alphabetUa);
 
+
     inp();
 
     function inp() {
-      let currentLang = prompt(`Введите букву алфавита какую хотите использовать
+      let toStr = prompt(`Введите букву алфавита какую хотите использовать
       en-0
       ru-1
       ua-2`);
 
-      currentLang = parseInt(currentLang);
+      currentLang = parseInt(toStr);
       currentLang = currentLang + 1;
-      if (((currentLang >= 1) && (currentLang <= 3)) && ((currentLang != ""))) {
+      if (((currentLang >= 1) && (currentLang <= 3)) && (currentLang != null)) {
         switch (currentLang) {
           case 1:
             keyboard.currentLang = "en";
@@ -78,9 +79,13 @@
             break;
           default:
         }
-      } else {
+      } else if (((typeof(toStr) === "string") || (currentLang < 1)) || (currentLang > 3)) {
+        console.log(currentLang);
         alert("был выбран не доступный язык");
         return inp();
+
+      } else {
+
       }
     }
     let lang = keyboard.currentLang.replace('"', '');
@@ -93,7 +98,6 @@
         let char = mas[variable]
         let newDiv = document.createElement("div", );
         newDiv.className = "box";
-        console.log(char);
         document.body.appendChild(newDiv);
 
         for (let var2 in char) {
@@ -101,7 +105,7 @@
           row.className = "str";
           row.innerHTML = (char[var2])[0];
           newDiv.appendChild(row);
-          console.log(row);
+
         }
       }
     }
