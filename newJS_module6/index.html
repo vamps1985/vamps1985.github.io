@@ -30,6 +30,7 @@
         this.layouts[lang].topRow = [alphabet.slice(0, 12)];
         this.layouts[lang].middleRow = [alphabet.slice(12, 23)];
         this.layouts[lang].bottomRow = [alphabet.slice(23)];
+          keyTrainer.randNum();
       }
     };
 
@@ -58,10 +59,10 @@
       let erors = 0;
       let fine = 0;
       for (let i = 0; i < a.length; i++) {
-        let num2 = prompt(`Введите символ "${a[i]}"`);
+        let num2 = prompt(`Введите символ "${a[i]}" и нажмите Enter`);
         if (num2 == a[i]) {
           fine = fine + 1;
-          console.log(fine);
+
         } else {
           erors = erors + 1;
         }
@@ -78,21 +79,22 @@
     en-0
     ru-1
     ua-2`);
-      if (((currentLang >= 0) && (currentLang <= 2)) && (currentLang != null)) {
-        currentLang = parseInt(currentLang);
-        currentLang = currentLang + 1;
+      if (((currentLang == "0") || (currentLang == "2")) || (currentLang == "1")) {
         switch (currentLang) {
-          case 1:
+          case "0":
             this.currentLang = "en";
             alphabet = alphabetEn;
+            keyTrainer.addKeyboardLayout(alphabet, this.currentLang);
             break;
-          case 2:
+          case "1":
             this.currentLang = "ru";
             alphabet = alphabetRu;
+            keyTrainer.addKeyboardLayout(alphabet, this.currentLang);
             break;
-          case 3:
+          case "2":
             this.currentLang = "ua";
             alphabet = alphabetUa;
+            keyTrainer.addKeyboardLayout(alphabet, this.currentLang);
             break;
           default:
         }
@@ -100,23 +102,27 @@
         alert("был выбран не доступный язык");
         getLang();
       } else {}
-      keyTrainer.addKeyboardLayout(alphabet, this.currentLang);
     };
-
     function cheknumberTrain() {
+      alert(`перед началом упражнения убедитесь что расккладка Вашей клавиатуры ${this.currentLang}`)
       let num = prompt("введите количество букв для тренировки");
-      num = parseInt(num);
-      if ((num > 0) && (!(isNaN(num)))) {
+      if (num!=null) {
+      if (!(isNaN(num))) {
         return this.numberTrain = num;
-
-      } else if ((isNaN(num)) && (num != NaN)) {
+        console.log(num);
+      } else if ((typeof num)=="string") {
         alert("Вы ввели не число");
-        cheknumberTrain();
+        console.log(num);
+        return cheknumberTrain();
       } else {
+        console.log(num);
       }
-    };
+    } else {
+
+    }
+  };
     getLang();
-    keyTrainer.randNum();
+
     //keyTrainer.numberTrain;
     let qwe = keyTrainer.layouts.ru;
   </script>
