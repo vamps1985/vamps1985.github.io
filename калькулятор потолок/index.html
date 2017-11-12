@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Калькулятор стоимости</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="inp">
+        <div class="">
+          <input type="text" id="width" name="" value="" placeholder="ширина м">
+        </div>
+        <div class="">
+          <input type="text" id="length" name="" value="" placeholder="длина м">
+        </div>
+        <div class="">
+          <input type="text" name="" value="" placeholder="количество углов">
+        </div>
+        <div class="">
+          <input type="text" name="" value=""placeholder="количество светильников">
+        </div>
+
+        <button type="button" onclick="fn()" name="button">Расчитать</button>
+
+      </div>
+      <span id="rez">Результат</span>
+    </div>
+<script type="text/javascript">
+let qwe;
+  function fn() {
+    let rez = document.getElementById('rez');
+    let width = document.getElementById('width').value;
+    let length = document.getElementById('length').value;
+    width = float1(width);
+    length = float1(length);
+    let square = (width*length)/100;
+     console.log(square);
+    let summ = 0;
+
+    if (square<=2000) {
+      summ = square*2;
+      console.log(summ + " грн");
+
+    } else if ((square>2000)&&(square<35000)) {
+      summ = (square*1)+(square/100)*80;
+      console.log(summ + " грн");
+
+    }
+    console.log(summ);
+    rez.innerHTML = ("Стоимость вашего заказа  " + summ  + " грн");
+  };
+
+  function float1(x) {
+
+
+  if (x>0) {
+     //qwe = a.slice(indexOf(","));
+
+
+       if (x.indexOf(".")!= -1) {
+         let qwe = parseInt(x.slice(0, x.indexOf(".")));
+          let qwe1 = parseInt(x.slice(x.indexOf(".")+1));
+           console.log(qwe1);
+           console.log(x.indexOf("."));
+           console.log(typeof qwe);
+           console.log(typeof qwe1);
+
+
+
+            x = (qwe*100)+(qwe1*10);
+            return x;
+
+       } else {
+         console.log(x*100);
+         return x*100;
+       }
+
+
+
+
+      console.log(width);
+
+  } else {
+    console.log("false");
+
+  }
+
+};
+
+
+</script>
+
+
+  </body>
+</html>
