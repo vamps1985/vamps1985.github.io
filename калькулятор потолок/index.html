@@ -3,6 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>Калькулятор стоимости</title>
+    <link rel="stylesheet" href="jquery-ui-1.12.1/jquery-ui.theme.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="jquery-ui-1.12.1/jquery-ui.js"></script>
+
   </head>
   <body>
     <div class="main">
@@ -25,7 +29,49 @@
       </div>
       <span id="rez">Результат</span>
     </div>
+
+    <p>
+  <label for="spinner">Select a value:</label>
+  <input id="spinner" name="value">
+</p>
+
+<p>
+  <button id="disable">Toggle disable/enable</button>
+  <button id="destroy">Toggle widget</button>
+</p>
+
+<p>
+  <button id="getvalue">Get value</button>
+  <button id="setvalue">Set value to 5</button>
+</p>
 <script type="text/javascript">
+$( function() {
+    var spinner = $( "#spinner" ).spinner();
+
+    $( "#disable" ).on( "click", function() {
+      if ( spinner.spinner( "option", "disabled" ) ) {
+        spinner.spinner( "enable" );
+      } else {
+        spinner.spinner( "disable" );
+      }
+    });
+    $( "#destroy" ).on( "click", function() {
+      if ( spinner.spinner( "instance" ) ) {
+        spinner.spinner( "destroy" );
+      } else {
+        spinner.spinner();
+      }
+    });
+    $( "#getvalue" ).on( "click", function() {
+      alert( spinner.spinner( "value" ) );
+    });
+    $( "#setvalue" ).on( "click", function() {
+      spinner.spinner( "value", 5 );
+    });
+
+    $( "button" ).button();
+  } );
+
 let qwe;
   function fn() {
     let rez = document.getElementById('rez');

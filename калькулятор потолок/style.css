@@ -1,0 +1,82 @@
+#resizable h3 {
+  text-align: center;
+  margin: 0
+}
+
+.block-item {
+  width: 100px;
+  height: 60px;
+  border: 1px dashed #000;
+  background: #fff;
+  position: relative
+}
+
+.sque {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  height: 30%;
+  width: 50%;
+  font-size: 18px
+}
+
+.sum {
+  width: 100%;
+  float: left
+}
+
+#tabs li .ui-icon-close {
+  cursor: pointer;
+  float: left;
+  margin: .4em .2em 0 0
+}
+
+.calc-right {
+  width: 100%;
+  float: left;
+  padding-bottom: 30px
+}
+
+.calc-right input {
+  width: 50px;
+  display: inline
+}
+
+.calc-left {
+  width: 100%;
+  float: left;
+  padding-bottom: 30px
+}
+
+.calculate form div {
+  clear: none
+}
+
+#tabs {
+  float: left;
+  font-size: 14px;
+  font-family: Open\ Sans, Arial, Helvetica, sans-serif
+}
+
+.last-item-calc {
+  padding-right: 14px
+}
+
+.calc-left h3, .calc-right h3, .sum h3 {
+  background: transparent;
+  border-bottom: 1px solid #a2c852
+}
+
+.calc-left h3 span, .calc-right h3 span, .sum h3 span {
+  background: transparent
+}
+
+.calc-left fieldset {
+  float: left;
+  margin-left: 30px;
+  width: 310px
+}
+
+.sum {
+  width: 100%
+}

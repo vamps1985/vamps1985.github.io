@@ -1,11 +1,95 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Модуль 9</title>
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.4/lodash.min.js"></script>
-  </head>
-  <body>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Модуль 9</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <style media="screen">
+  </style>
+
+  <script type="text/template" id="list-template">
+    <div class="keyboard">
+
+      <div class="keyboard__row">
+
+      <% for ( item in keyboard.layouts.topRow) { %>
+        <button class="keyboard__btn"><%-keyboard.layouts.topRow[item]%></button>
+        <% } %>
+</div>
+          <div class="keyboard__row">
+
+          <% for ( item in keyboard.layouts.middleRow) { %>
+            <button class="keyboard__btn"><%-keyboard.layouts.middleRow[item]%></button>
+            <% } %>
+</div>
+              <div class="keyboard__row">
+              <% for ( item in keyboard.layouts.bottomRow) { %>
+                <button class="keyboard__btn"><%-keyboard.layouts.bottomRow[item]%></button>
+                <% } %>
+                </div>
+                <div class="keyboard__row">
+
+                  <button class="keyboard__btn keyboard__btn--space">space</button>
+
+                  </div>
+    </div>
+    </div>
+    </div>
+  </script>
+
+  <script>
+    const lang = {
+      en: "qwertyuiop[]asdfghjkl;'zxcvbnm,./"
+    };
+    const keyboard = {
+      layouts: {
+        topRow: [],
+        middleRow: [],
+        bottomRow: []
+      },
+
+    }
+
+    function addkey(a) {
+      return {
+        topRow: (a.slice(0, 12)),
+        middleRow: (a.slice(12, 23)),
+        bottomRow: (a.slice(23))
+      }
+    };
+    keyboard.layouts = addkey(lang.en)
+    let tmpl = _.template(document.getElementById('list-template').innerHTML);
+    const html = document.getElementById('list-template').textContent.trim();
+    const compiled = _.template(html);
+    const result = compiled(keyboard);
+    const keys = "qwertyuiop[]asdfghjkl;'zxcvbnm,./".split("");
+    let mass = keys.push(" ");
+
+    const container = document.getElementById('keyboard');
+    document.body.innerHTML = result;
+    window.onkeydown = function(event) {
+      let z = event.key;
+      let q = event.code;
+      let arr = document.getElementsByTagName('button');
+      for (let x = 0; x < arr.length; x++) {
+        if ((keys[x]) == z) {
+
+          arr[x].classList.add("keyboard__btn--active");
+        }
+      }
+    };
+    window.onkeyup = function(event) {
+      let arr1 = document.querySelectorAll("button.keyboard__btn.keyboard__btn--active");
+      for (var c = 0; c < arr1.length; c++) {
+        arr1[c].classList.remove("keyboard__btn--active");
+      }
+    };
+  </script>
+</body>
+
 </html>

@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script type="text/javascript" src="top.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  
+
+</head>
+
+<body>
+
+
+  <form>
+    <div class="calc-right">
+      <h3 class="title"><span>Размер потолка:</span></h3> Длина:<span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input name="w" value="5.00" class="spiner ui-spinner-input" autocomplete="off" aria-valuemin="0.1" aria-valuemax="30" aria-valuenow="5.8" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
+      </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      <span class="last-item-calc">м</span> Ширина:<span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input class="spiner ui-spinner-input" name="h" value="3.00" autocomplete="off" aria-valuemin="0.1" aria-valuemax="30" aria-valuenow="3" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false">
+        <span class="ui-button-text">
+          <span class="ui-icon ui-icon-triangle-1-n">▲
+          </span>
+      </span>
+      </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      <span class="last-item-calc">м</span> Периметр:<input name="p" value="16.0" type="text" readonly="readonly" autocomplete="off"><span class="last-item-calc">м</span> Площадь:<input name="s" value="15.00" type="text" readonly="readonly" autocomplete="off">м<sup>2</sup>
+      <div>
+        <div class="ui-widget-content block-item ui-resizable" style="width: 116px;">
+          <div class="sque">17.40</div>
+          <div class="ui-resizable-handle ui-resizable-e" style="z-index: 90;"></div>
+          <div class="ui-resizable-handle ui-resizable-s" style="z-index: 90;"></div>
+          <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" style="z-index: 90;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="calc-left">
+      <h3 class="title"><span>Материалы:</span></h3>
+      <fieldset class="no-margin">
+        <legend>Выберите материал: </legend><input name="ugol_c" type="hidden" value="50" autocomplete="off"><input name="svet_c" type="hidden" value="80" autocomplete="off"><input name="lustr_c" type="hidden" value="80" autocomplete="off"><input name="kriv_c"
+          type="hidden" value="90" autocomplete="off"><select name="polotno"> <optgroup label="Полотно"><option value="90">Матовая – белый, цветной</option>  <option value="90">Лаковая – белый, цветной</option>  <option value="90">Сатиновая – белый, цветной</option>  <option value="110">Матовая  (ширина &gt; 3.5м) – белый, цветной</option>  <option value="110">Лаковая  (ширина &gt; 3.5м) – белый, цветной</option>  <option value="110">Сатиновая  (ширина &gt; 3.5м)  – белый, цветной</option></optgroup> <optgroup label="Ткань CLIPSO"> <option value="400">Ткань CLIPSO Оptical white(3м,4м,5.1м) – Белый</option>  <option value="400">Ткань CLIPSO print(3.2м,5м)  – Белая под фотопечать</option>  <option value="494">Ткань CLIPSO (3м,4м,5.1м)  – цветной</option>  <option value="394">Ткань CLIPSO acoustic(3м,4м,5.1м) – белый</option>  <option value="558">Ткань CLIPSO translucent(3.2м,5м)  – полупрозрачный</option>  <option value="400">Ткань CLIPSO 705s(3м,4м,5.1м) – белая классическая</option></optgroup></select></fieldset>
+      <fieldset>
+        <legend> Вставка маскировочная: </legend><select name="vstavka">  <option value="18">Белая/Чёрная</option>  <option value="30">В цвет полотна</option></select></fieldset>
+      <fieldset style="width:100%;margin-left:0;">
+        <legend> Профиль: </legend><select name="profil">  <option value="30">Профиль ПВХ</option>  <option value="50">Профиль алюминиевый</option>  <option value="247">Профиль Clipso</option></select></fieldset>
+      <h3 class="title"><span>Дополнительные элементы сложности:</span></h3>
+      <fieldset class="no-margin">
+        <legend> Количество углов, шт: </legend><span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input name="ugol" value="4" class="spineru ui-spinner-input" autocomplete="off" aria-valuemin="4" aria-valuemax="30" aria-valuenow="4" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
+        </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      </fieldset>
+      <fieldset>
+        <legend>Крепление светильника, шт:</legend><span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input name="svet" value="0" class="spinerd ui-spinner-input" autocomplete="off" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
+        </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      </fieldset>
+      <fieldset class="no-margin">
+        <legend> Крепление люстры, шт:</legend><span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input name="lustr" value="0" class="spinerd ui-spinner-input" autocomplete="off" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
+        </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      </fieldset>
+      <fieldset>
+        <legend> Криволинейные участки, м: </legend> <span class="ui-spinner ui-widget ui-widget-content ui-corner-all"><input name="kriv" value="0.0" class="spinek ui-spinner-input" autocomplete="off" aria-valuemin="0" aria-valuemax="30" aria-valuenow="0" role="spinbutton"><a class="ui-spinner-button ui-spinner-up ui-corner-tr ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-n">▲</span></span>
+        </a><a class="ui-spinner-button ui-spinner-down ui-corner-br ui-button ui-widget ui-state-default ui-button-text-only" tabindex="-1" role="button" aria-disabled="false"><span class="ui-button-text"><span class="ui-icon ui-icon-triangle-1-s">▼</span></span></a></span>
+      </fieldset>
+      <fieldset class="no-margin">
+        <legend> Центровка шва: <input name="show_c" autocomplete="off" type="checkbox"> </legend>
+      </fieldset>
+    </div>
+    <div class="sum ">
+      <h3 class="title"><span>Стоимость потолка:</span></h3>
+      <ul>
+        <li>Цена за полотно: грн. <span class="sum_pol">1566.00</span></li>
+        <li>Цена за профиль и маскировочну вставку: грн. <span class="sum_prof">844.80</span></li>
+        <li>Цена за дополнительные элементы сложности: грн. <span class="sum_dop">200.00</span></li>
+        <li>+ 25% за монтажные работы: грн. <span class="sum_mont">652.70</span></li>
+        <li>Итого за потолок: грн. <span class="sum_all">3263.50</span></li>
+      </ul>
+    </div>
+  </form>
+  <script>
+    (function($) {
+      $(function() {
+        var tabContentHtml = '<form>';
+        tabContentHtml += '<div class="calc-right">';
+        tabContentHtml += '<h3 class="title"><span>Размер потолка:</span></h3>';
+        tabContentHtml += '   Длина:<input name="w" value="5.00" class="spiner" autocomplete="off"/><span class="last-item-calc">м</span>';
+        tabContentHtml += '   Ширина:<input class="spiner"  name="h" value="3.00" autocomplete="off"/><span class="last-item-calc">м</span>';
+        tabContentHtml += '   Периметр:<input   name="p" value="16.0" type="text" readonly="readonly" autocomplete="off"/><span class="last-item-calc">м</span>';
+        tabContentHtml += '   Площадь:<input   name="s" value="15.00" type="text" readonly="readonly" autocomplete="off"/>м<sup>2</sup>';
+        tabContentHtml += '   <div>';
+        tabContentHtml += '       <div class="ui-widget-content block-item">';
+        tabContentHtml += '         <div class="sque">15.00</div>';
+        tabContentHtml += '       </div>';
+        tabContentHtml += '  </div>';
+        tabContentHtml += '</div>';
+        tabContentHtml += '<div class="calc-left"><h3 class="title"><span>Материалы:</span></h3>';
+        tabContentHtml += '<fieldset class="no-margin">';
+        tabContentHtml += '<legend>';
+        tabContentHtml += 'Выберите материал: ';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<input  name="ugol_c" type="hidden" value="50"  autocomplete="off"/>';
+        tabContentHtml += '<input  name="svet_c" type="hidden" value="80"  autocomplete="off"/>';
+        tabContentHtml += '<input  name="lustr_c" type="hidden" value="80"  autocomplete="off"/>';
+        tabContentHtml += '<input  name="kriv_c" type="hidden" value="90"  autocomplete="off"/>';
+        tabContentHtml += '<select name="polotno">';
+        tabContentHtml += ' <optgroup label="Полотно">';
+        tabContentHtml += '<option value="90">Матовая &#8211; белый, цветной</option>';
+        tabContentHtml += '  <option value="90">Лаковая &#8211; белый, цветной</option>';
+        tabContentHtml += '  <option value="90">Сатиновая &#8211; белый, цветной</option>';
+        tabContentHtml += '  <option value="110">Матовая  (ширина > 3.5м) &#8211; белый, цветной</option>';
+        tabContentHtml += '  <option value="110">Лаковая  (ширина > 3.5м) &#8211; белый, цветной</option>';
+        tabContentHtml += '  <option value="110">Сатиновая  (ширина > 3.5м)  &#8211; белый, цветной</option>';
+        tabContentHtml += '</optgroup>';
+        tabContentHtml += ' <optgroup label="Ткань CLIPSO"> <option value="400">Ткань CLIPSO Оptical white(3м,4м,5.1м) &#8211; Белый</option>';
+        tabContentHtml += '  <option value="400">Ткань CLIPSO print(3.2м,5м)  &#8211; Белая под фотопечать</option>';
+        tabContentHtml += '  <option value="494">Ткань CLIPSO (3м,4м,5.1м)  &#8211; цветной</option>';
+        tabContentHtml += '  <option value="394">Ткань CLIPSO acoustic(3м,4м,5.1м) &#8211; белый</option>';
+        tabContentHtml += '  <option value="558">Ткань CLIPSO translucent(3.2м,5м)  &#8211; полупрозрачный</option>';
+        tabContentHtml += '  <option value="400">Ткань CLIPSO 705s(3м,4м,5.1м) &#8211; белая классическая</option></optgroup>';
+        tabContentHtml += '</select>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<fieldset >';
+        tabContentHtml += '<legend>';
+        tabContentHtml += '  Вставка маскировочная: ';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<select name="vstavka">';
+        tabContentHtml += '  <option value="18">Белая/Чёрная</option>';
+        tabContentHtml += '  <option value="30">В цвет полотна</option>';
+        tabContentHtml += '</select>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<fieldset style="width:100%;margin-left:0;">';
+        tabContentHtml += '<legend>';
+        tabContentHtml += '  Профиль: ';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<select name="profil">';
+        tabContentHtml += '  <option value="30">Профиль ПВХ</option>';
+        tabContentHtml += '  <option value="50">Профиль алюминиевый</option>';
+        tabContentHtml += '  <option value="247">Профиль Clipso</option>';
+        tabContentHtml += '</select>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<h3 class="title"><span>Дополнительные элементы сложности:</span></h3>';
+        tabContentHtml += '<fieldset class="no-margin">';
+        tabContentHtml += '<legend>';
+        tabContentHtml += '  Количество углов, шт: ';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<input name="ugol" value="4" class="spineru" autocomplete="off"/>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<fieldset>';
+        tabContentHtml += '<legend>';
+        tabContentHtml += 'Крепление светильника, шт:';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<input  name="svet" value="0" class="spinerd" autocomplete="off"/>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<fieldset class="no-margin">';
+        tabContentHtml += ' <legend>';
+        tabContentHtml += '  Крепление люстры, шт:';
+        tabContentHtml += '</legend>';
+        tabContentHtml += '<input  name="lustr" value="0" class="spinerd" autocomplete="off"/>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '<fieldset>';
+        tabContentHtml += '  <legend>';
+        tabContentHtml += '   Криволинейные участки, м:';
+        tabContentHtml += '  </legend>';
+        tabContentHtml += '  <input  name="kriv" value="0.0" class="spinek" autocomplete="off"/>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += ' <fieldset class="no-margin">';
+        tabContentHtml += '  <legend>';
+        tabContentHtml += '   Центровка шва: <input  name="show_c"  autocomplete="off" type="checkbox"/>';
+        tabContentHtml += ' </legend>';
+        tabContentHtml += '</fieldset>';
+        tabContentHtml += '</div>';
+        tabContentHtml += '<div class="sum ">  ';
+        tabContentHtml += '<h3 class="title"><span>Стоимость потолка:</span></h3>';
+        tabContentHtml += '  <ul><li>Цена за полотно: грн. <span class="sum_pol"></span></li>';
+        tabContentHtml += ' <li>Цена за профиль и маскировочну вставку: грн. <span class="sum_prof"></span></li>';
+        tabContentHtml += ' <li>Цена за дополнительные элементы сложности: грн. <span class="sum_dop"></span></li>';
+        tabContentHtml += '<li>+ 25% за монтажные работы: грн. <span class="sum_mont"></span></li>';
+        tabContentHtml += '<li>Итого за потолок: грн. <span class="sum_all"></span></li></ul>';
+        tabContentHtml += '</div>';
+        tabContentHtml += '</form>';
+        $(".spiner").spinner({
+          step: 0.1,
+          numberFormat: "n",
+          max: 30,
+          min: 0.1
+        });
+        $(".spinek").spinner({
+          step: 0.1,
+          numberFormat: "n",
+          max: 30,
+          min: 0.0
+        });
+        $(".spinerd").spinner({
+          step: 1,
+          numberFormat: "d",
+          max: 30,
+          min: 0
+        });
+        $(".spineru").spinner({
+          step: 1,
+          numberFormat: "d",
+          max: 30,
+          min: 4
+        });
+        var tabs = $("#tabs").tabs({
+          activate: function(event, ui) {
+            tabsAction.params.currentTab = ui.newPanel.prop('id');
+          }
+        });
+        $("#new_tab").on("click", function() {
+          tabsAction.addTab();
+        });
+        tabs.delegate("span.ui-icon-close", "click", function() {
+          tabsAction.removeTab(this);
+        });
+        var tabsAction = {
+          params: {
+            tabTitle: $("#tab_title"),
+            tabContent: $("#tab_content"),
+            tabTemplate: "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>",
+            tabTemplateFirst: "<li><a href='#{href}'>#{label}</a></li>",
+            tabCounter: 1,
+            countTab: 1,
+            currentTab: 0
+          },
+          addTab: function() {
+            if (tabsAction.params.countTab > 5) return false;
+            var label = tabsAction.params.tabTitle.val() || "Потолок №" + tabsAction.params.tabCounter,
+              id = "tabs-" + tabsAction.params.tabCounter;
+            if (tabsAction.params.tabCounter == 1) li = $(tabsAction.params.tabTemplateFirst.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label));
+            else
+              li = $(tabsAction.params.tabTemplate.replace(/#\{href\}/g, "#" + id).replace(/#\{label\}/g, label));
+            tabs.find(".ui-tabs-nav").append(li);
+            tabs.append("<div id='" + id + "'>" + tabContentHtml + "</div>");
+            tabsAction.initScripts(id);
+            tabs.tabs("refresh");
+            $("#tabs").tabs({
+              active: (tabsAction.params.tabCounter - 1)
+            });
+            calc.initTabs(tabsAction.params.tabCounter);
+            tabsAction.params.tabCounter++;
+            tabsAction.params.countTab++;
+          },
+          removeTab: function(el) {
+            var panelId = $(el).closest("li").remove().attr("aria-controls");
+            $("#" + panelId).remove();
+            tabs.tabs("refresh");
+            k = panelId.split("-");
+            delete calc.tabsItem[k[1]];
+            calc.setAllSum();
+            tabsAction.params.countTab--;
+          },
+          getCurrentTab: function() {
+            tab = tabsAction.params.currentTab.split("-");
+            return tab[1];
+          },
+          initScripts: function(id) {
+            $('#' + id + ' .block-item').resizable({
+              maxHeight: 600,
+              maxWidth: 600,
+              minWidth: 2,
+              minHeight: 2,
+              resize: function(event, ui) {
+                var w = ($('#' + id + ' .block-item').width() * 0.05).toFixed(1);
+                $('#' + id + ' input[name=w]').val(w);
+                var h = ($('#' + id + ' .block-item').height() * 0.05).toFixed(1);
+                $('#' + id + ' input[name=h]').val(h);
+                var p = (w * 2 + h * 2).toFixed(1);
+                $('#' + id + ' input[name=p]').val(p);
+                var s = (w * h).toFixed(2);
+                $('#' + id + ' input[name=s]').val(s);
+                $(this).find(".sque").html(s);
+                changeParams.setResize(w, h, p, s);
+              }
+            });
+            $("#" + id + " .spiner").spinner({
+              step: 0.1,
+              numberFormat: "n",
+              max: 30,
+              min: 0.1
+            });
+            $("#" + id + " .spinek").spinner({
+              step: 0.1,
+              numberFormat: "n",
+              max: 30,
+              min: 0.0
+            });
+            $("#" + id + " .spinerd").spinner({
+              step: 1,
+              numberFormat: "d",
+              max: 30,
+              min: 0
+            });
+            $("#" + id + " .spineru").spinner({
+              step: 1,
+              numberFormat: "d",
+              max: 30,
+              min: 4
+            });
+          }
+        }
+        var calc = {
+          tabsItem: {},
+          params: {
+            w: 5,
+            h: 3,
+            s: 15,
+            p: 16,
+            profil: '',
+            vstavka: '',
+            polotno: '',
+            ugol: 4,
+            svet: '',
+            lustr: '',
+            kriv: '',
+            ugol_c: 0,
+            svet_c: 0,
+            lustr_c: 0,
+            kriv_c: 0,
+            show_c: false,
+            sum_pol: 0,
+            sum_prof: 0,
+            sum_dop: 0,
+            sum_mont: 0,
+            sum_all: 0
+          },
+          calculateBlocks: {},
+          initTabs: function(i) {
+            calc.tabsItem[i] = {
+              w: 5,
+              h: 3,
+              s: 15,
+              p: 16,
+              profil: '',
+              vstavka: '',
+              polotno: '',
+              ugol: 4,
+              svet: '',
+              lustr: '',
+              kriv: '',
+              ugol_c: 0,
+              svet_c: 0,
+              lustr_c: 0,
+              kriv_c: 0,
+              show_c: false,
+              sum_pol: 0,
+              sum_prof: 0,
+              sum_dop: 0,
+              sum_mont: 0,
+              sum_all: 0
+            };
+            width = parseFloat($("#tabs-" + i + " input[name=w]").val()).toFixed(1);
+            if (isNaN(width)) {
+              width = calc.params.w;
+            }
+            calc.setParams(calc.tabsItem[i], 'w', width);
+            height = parseFloat($("#tabs-" + i + " input[name=h]").val()).toFixed(1);
+            if (isNaN(height)) {
+              height = calc.params.h;
+            }
+            calc.setParams(calc.tabsItem[i], 'h', height);
+            perimetr = parseFloat($("#tabs-" + i + " input[name=p]").val()).toFixed(1);
+            if (isNaN(perimetr)) {
+              perimetr = calc.params.p;
+            }
+            calc.setParams(calc.tabsItem[i], 'p', perimetr);
+            pl = parseFloat($("#tabs-" + i + " input[name=s]").val()).toFixed(2);
+            if (isNaN(pl)) {
+              pl = calc.params.s;
+            }
+            calc.setParams(calc.tabsItem[i], 's', pl);
+            profil = parseFloat($("#tabs-" + i + " select[name=profil]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'profil', profil);
+            vstavka = parseFloat($("#tabs-" + i + " select[name=vstavka]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'vstavka', vstavka);
+            polotno = parseFloat($("#tabs-" + i + " select[name=polotno]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'polotno', polotno);
+            ugol = parseInt($("#tabs-" + i + " input[name=ugol]").val());
+            calc.setParams(calc.tabsItem[i], 'ugol', ugol);
+            svet = parseInt($("#tabs-" + i + " input[name=svet]").val());
+            calc.setParams(calc.tabsItem[i], 'svet', svet);
+            lustr = parseInt($("#tabs-" + i + " input[name=lustr]").val());
+            calc.setParams(calc.tabsItem[i], 'lustr', lustr);
+            kriv = parseFloat($("#tabs-" + i + " input[name=kriv]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'kriv', kriv);
+            ugol_c = parseFloat($("#tabs-" + i + " input[name=ugol_c]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'ugol_c', ugol_c);
+            svet_c = parseFloat($("#tabs-" + i + " input[name=svet_c]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'svet_c', svet_c);
+            lustr_c = parseFloat($("#tabs-" + i + " input[name=lustr_c]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'lustr_c', lustr_c);
+            kriv_c = parseFloat($("#tabs-" + i + " input[name=kriv_c]").val()).toFixed(2);
+            calc.setParams(calc.tabsItem[i], 'kriv_c', kriv_c);
+            if ($("#tabs-" + i + " input[name=show_c]").attr("checked") == "checked") show_c = true;
+            else
+              show_c = false;
+            calc.setParams(calc.tabsItem[i], 'show_c', show_c);
+            calc.calculation(calc.tabsItem[i]);
+            calc.setItog(calc.tabsItem[i], i);
+          },
+          setParams: function(obj, param, value) {
+            obj[param] = value;
+            return obj;
+          },
+          calculation: function(obj) {
+            obj.sum_pol = (obj.polotno * obj.s).toFixed(2);
+            obj.sum_prof = (obj.vstavka * obj.p + obj.profil * obj.p).toFixed(2);
+            sum_kriv = 0;
+            if (obj.show_c) sum_kriv = parseFloat(obj.sum_pol + obj.sum_prof) * 10 / 100;
+            obj.sum_dop = (sum_kriv + (obj.ugol * obj.ugol_c) + (obj.svet * obj.svet_c) + (obj.lustr * obj.lustr_c) + (obj.kriv * obj.kriv_c)).toFixed(2);
+            obj.sum_mont = ((parseFloat(obj.sum_pol) + parseFloat(obj.sum_prof) + parseFloat(obj.sum_dop)) * 0.25).toFixed(2);
+            obj.sum_all = (parseFloat(obj.sum_pol) + parseFloat(obj.sum_prof) + parseFloat(obj.sum_dop) + parseFloat(obj.sum_mont)).toFixed(2);
+          },
+          setItog: function(obj, i) {
+            $("#tabs-" + i + " .sum_pol").html(obj.sum_pol);
+            $("#tabs-" + i + " .sum_prof").html(obj.sum_prof);
+            $("#tabs-" + i + " .sum_dop").html(obj.sum_dop);
+            $("#tabs-" + i + " .sum_mont").html(obj.sum_mont);
+            $("#tabs-" + i + " .sum_all").html(obj.sum_all);
+            calc.setAllSum();
+          },
+          setAllSum: function() {
+            sum = 0;
+            for (var key in calc.tabsItem) {
+              sum = sum + parseFloat(calc.tabsItem[key].sum_all);
+            }
+            $("#all_pol").html(sum.toFixed(2));
+          }
+        }
+        var changeParams = {
+          setWidth: function(w) {
+            tabId = tabsAction.getCurrentTab();
+            width = 20 * w;
+            $("#tabs-" + tabId + " .block-item").width(width);
+            changeParams.setPerimentr(tabId);
+            changeParams.setPloshad(tabId);
+            calc.setParams(calc.tabsItem[tabId], 'w', w);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setHeight: function(h) {
+            tabId = tabsAction.getCurrentTab();
+            height = 20 * h;
+            $("#tabs-" + tabId + " .block-item").height(height);
+            changeParams.setPerimentr(tabId);
+            changeParams.setPloshad(tabId);
+            calc.setParams(calc.tabsItem[tabId], 'h', h);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setResize: function(w, h, p, s) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'w', w);
+            calc.setParams(calc.tabsItem[tabId], 'h', h);
+            calc.setParams(calc.tabsItem[tabId], 'p', p);
+            calc.setParams(calc.tabsItem[tabId], 's', s);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setPerimentr: function(tab) {
+            perimetr = ($("#tabs-" + tab + " input[name=w]").val() * 2 + $("#tabs-" + tab + " input[name=h]").val() * 2).toFixed(2);
+            $("#tabs-" + tab + " input[name=p]").val(perimetr);
+            calc.setParams(calc.tabsItem[tab], "p", perimetr);
+          },
+          setPloshad: function(tab) {
+            plosha = ($("#tabs-" + tab + " input[name=w]").val() * $("#tabs-" + tab + " input[name=h]").val()).toFixed(2);
+            $("#tabs-" + tab + " input[name=s]").val(plosha);
+            $("#tabs-" + tab + " .sque").html(plosha);
+            calc.setParams(calc.tabsItem[tab], "s", plosha);
+          },
+          setProfil: function(profil) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'profil', profil);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setPolotno: function(polotno) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'polotno', polotno);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setVstavka: function(vstavka) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'vstavka', vstavka);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setUgol: function(ugol) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'ugol', ugol);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setSvet: function(svet) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'svet', svet);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setLustr: function(lustr) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'lustr', lustr);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setKriv: function(kriv) {
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'kriv', kriv);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          },
+          setShowC: function(param) {
+            console.log(param);
+            tabId = tabsAction.getCurrentTab();
+            calc.setParams(calc.tabsItem[tabId], 'show_c', param);
+            calc.calculation(calc.tabsItem[tabId]);
+            calc.setItog(calc.tabsItem[tabId], tabId);
+          }
+        }
+        $(document).on("spinstop", "input[name=w]", function() {
+          if (parseFloat($(this).val()) > 30) {
+            $(this).val(30);
+          }
+          w = parseFloat($(this).val());
+          changeParams.setWidth(w);
+          return false;
+        });
+        $(document).on("spinstop", "input[name=h]", function() {
+          if (parseFloat($(this).val()) > 30) {
+            $(this).val(30);
+          }
+          h = parseFloat($(this).val());
+          changeParams.setHeight(h);
+          return false;
+        });
+        $(document).on("change", "select[name=polotno]", function() {
+          polotno = parseFloat($(this).val());
+          changeParams.setPolotno(polotno);
+          return false;
+        });
+        $(document).on("change", "select[name=profil]", function() {
+          profil = parseFloat($(this).val());
+          changeParams.setProfil(profil);
+          return false;
+        });
+        $(document).on("change", "select[name=vstavka]", function() {
+          vstavka = parseFloat($(this).val());
+          changeParams.setVstavka(vstavka);
+          return false;
+        });
+        $(document).on("spinstop", "input[name=ugol]", function() {
+          ugol = parseInt($(this).val());
+          changeParams.setUgol(ugol);
+          return false;
+        });
+        $(document).on("spinstop", "input[name=svet]", function() {
+          svet = parseInt($(this).val());
+          changeParams.setSvet(svet);
+          return false;
+        });
+        $(document).on("spinstop", "input[name=lustr]", function() {
+          lustr = parseInt($(this).val());
+          changeParams.setLustr(lustr);
+          return false;
+        });
+        $(document).on("spinstop", "input[name=kriv]", function() {
+          kriv = parseFloat($(this).val());
+          changeParams.setKriv(kriv);
+          return false;
+        });
+        $(document).on("click", "input[name=show_c]", function() {
+          if ($(this).is(':checked')) changeParams.setShowC(true);
+          else
+            changeParams.setShowC(false);
+        });
+        tabsAction.addTab();
+        calc.initTabs(1);
+      });
+    })(jQuery);
+  </script>
+</body>
+
+</html>
