@@ -16,29 +16,26 @@
     <div class="keyboard">
 
       <div class="keyboard__row">
-
-      <% for ( item in keyboard.layouts.topRow) { %>
-        <button class="keyboard__btn"><%-keyboard.layouts.topRow[item]%></button>
+        <% for ( item in keyboard.layouts.topRow) { %>
+          <button class="keyboard__btn"><%-keyboard.layouts.topRow[item]%></button>
         <% } %>
-</div>
-          <div class="keyboard__row">
+      </div>
 
+      <div class="keyboard__row">
           <% for ( item in keyboard.layouts.middleRow) { %>
             <button class="keyboard__btn"><%-keyboard.layouts.middleRow[item]%></button>
             <% } %>
-</div>
-              <div class="keyboard__row">
-              <% for ( item in keyboard.layouts.bottomRow) { %>
-                <button class="keyboard__btn"><%-keyboard.layouts.bottomRow[item]%></button>
-                <% } %>
-                </div>
-                <div class="keyboard__row">
-
-                  <button class="keyboard__btn keyboard__btn--space">space</button>
-
-                  </div>
-    </div>
-    </div>
+        </div>
+        <div class="keyboard__row">
+            <% for ( item in keyboard.layouts.bottomRow) { %>
+              <button class="keyboard__btn"><%-keyboard.layouts.bottomRow[item]%></button>
+            <% } %>
+            </div>
+            <div class="keyboard__row">
+                <button class="keyboard__btn keyboard__btn--space">space</button>
+            </div>
+          </div>
+        </div>
     </div>
   </script>
 
