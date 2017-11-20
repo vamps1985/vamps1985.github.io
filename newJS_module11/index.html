@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Модуль 11</title>
+  <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+</head>
+
+<body>
+  <input type="text" id="user" name="" placeholder="name" value=""> <input type="text" id="scope" placeholder="scope" name="" value="">
+  <button type="button" onclick="fn1()" name="button">Добавить пользоветеля</button>
+  <button type="button" onclick="fn()" name="button">Обновить</button>
+  <script type="text/javascript">
+    let mass;
+    $.ajax({
+      url: 'http://fecore.net.ua/rest/',
+      dataType: "json",
+      success: function(data) {
+
+
+
+        mass = data;
+        fn(mass);
+      }
+    });
+
+    function fn() {
+      $('li').remove();
+      for (let i = 0; i < mass.length; i++) {
+        $('body').append('<li>' + mass[i].name + '</li>');
+
+        console.log(mass[i].id + " " + mass[i].name + " " + mass[i].score);
+      }
+    };
+    function fn1() {
+      let str = "";
+      let newUser = $("#user").val();
+      let newScope = $("#scope").val();
+      let newId = parseInt(mass[mass.length - 1].id) + 1;
+      str = newId + "";
+      str = str.trim();
+
+      mass.push({
+        id: str,
+        name: newUser,
+        score: newScope
+      });
+      let push = {
+        id: str,
+        name: newUser,
+        score: newScope
+      };
+      $.ajax({
+        type: "POST",
+        url: "http://fecore.net.ua/rest/",
+        data: push,
+        success: function(data) {
+          console.log(data);
+        }
+      });
+
+      fetch("http://fecore.net.ua/rest/", {
+          method: 'post',
+          body: push
+        })
+        .then(function(response) {
+          console.log(response.json());
+
+        })
+        .then(function(data) {
+
+        })
+        .catch(function(err) {
+          // error handling
+        });
+
+    };
+  </script>
+</body>
+</html>
