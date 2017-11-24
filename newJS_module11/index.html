@@ -4,81 +4,169 @@
 <head>
   <meta charset="utf-8">
   <title>Модуль 11</title>
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+  <style media="screen">
+    .add-user {
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+
+    }
+
+    button {
+      background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+      padding: 3px 7px;
+      color: #333;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      border: 1px solid #666;
+    }
+
+    #refresh {
+      position: absolute;
+      left: 350px;
+
+    }
+
+    .del {
+      margin-top: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+    }
+
+    .get {
+      margin-top: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+    }
+  </style>
 </head>
 
 <body>
-  <input type="text" id="user" name="" placeholder="name" value=""> <input type="text" id="scope" placeholder="scope" name="" value="">
-  <button type="button" onclick="fn1()" name="button">Добавить пользоветеля</button>
-  <button type="button" onclick="fn()" name="button">Обновить</button>
+  <div class="add-user">
+    <span>Добавить пользователя</span> <br>
+    <input type="text" id="user" name="" placeholder="name" value=""> <input type="text" id="scope" placeholder="scope" name="" value=""> <button type="button" onclick="checkInpUser();" name="button">Добавить пользоветеля</button>
+  </div>
+  <div id="refresh">
+
+
+    <button type="button" id="refresh" onclick="fn()" name="button">Обновить список пользователей</button> <br> <br>
+  </div>
+  <div class="del">
+    <span>Удалить по id</span> <br>
+    <input type="text" id="restID" name="" value=""> <button type="button" onclick="removeUser()" name="button">Удалить по id</button> <br>
+  </div>
+  <div class="get">
+    <span>Обновить информацию о пользователе</span> <br>
+    <input type="text" id="searchId" name="" onchange="getUser()" placeholder="введите id пользователя" value=""> <br> <br> name = <input type="text" id="refreshName" name="" value=""> <br> <br> score = <input type="text" id="refreshScore" name="" value="">    <br> <br>
+    <button type="button" onclick="update()" name="button">обновить информацию</button>
+
+
+
+  </div>
+
   <script type="text/javascript">
+    function getUser() {
+      let searchId = $("#searchId").val();
+      $.ajax({
+        url: 'http://fecore.net.ua/rest/',
+        dataType: "json",
+        success: function(data) {
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].id === searchId) {
+              $("#refreshName").val(data[i].name);
+              $("#refreshScore").val(data[i].score);
+            }
+          }
+        }
+      })
+    }
+
+    function update() {
+      let searchId = $("#searchId").val();
+      let q = $("#refreshName").val();
+      let z = $("#refreshScore").val();
+      let updateUrl1 = `${url}?action=2&id=${searchId}&name=${q}&score=${z}`;
+      $("#searchId").val("");
+      $("#refreshName").val("");
+      $("#refreshScore").val("");
+      fetch(updateUrl1, {
+        metod: "post",
+        mode: 'cors',
+      }).catch(function(error) {
+        console.log(error);
+      });
+    }
     let mass;
-    $.ajax({
-      url: 'http://fecore.net.ua/rest/',
-      dataType: "json",
-      success: function(data) {
-
-
-
-        mass = data;
-        fn(mass);
-      }
-    });
 
     function fn() {
-      $('li').remove();
-      for (let i = 0; i < mass.length; i++) {
-        $('body').append('<li>' + mass[i].name + '</li>');
-
-        console.log(mass[i].id + " " + mass[i].name + " " + mass[i].score);
-      }
-    };
-    function fn1() {
-      let str = "";
-      let newUser = $("#user").val();
-      let newScope = $("#scope").val();
-      let newId = parseInt(mass[mass.length - 1].id) + 1;
-      str = newId + "";
-      str = str.trim();
-
-      mass.push({
-        id: str,
-        name: newUser,
-        score: newScope
-      });
-      let push = {
-        id: str,
-        name: newUser,
-        score: newScope
-      };
       $.ajax({
-        type: "POST",
-        url: "http://fecore.net.ua/rest/",
-        data: push,
+        url: 'http://fecore.net.ua/rest/',
+        dataType: "json",
         success: function(data) {
-          console.log(data);
+          mass = data;
+          $('li').remove();
+          for (let i = 0; i < mass.length; i++) {
+            $('body').append('<li>' + " id=" + mass[i].id + " " + "name=" + mass[i].name + " score= " + mass[i].score + '</li>');
+          }
         }
-      });
+      })
+    };
 
-      fetch("http://fecore.net.ua/rest/", {
-          method: 'post',
-          body: push
-        })
-        .then(function(response) {
-          console.log(response.json());
+    function checkInpUser() {
+      let user = $("#user").val();
+      let scope = $("#scope").val();
 
-        })
-        .then(function(data) {
-
-        })
-        .catch(function(err) {
-          // error handling
+      if (user == 0) {
+        $("#user").css({
+          'border': '1px solid red'
         });
+        $("#user").attr({
+          'value': 'Ви не ввели імя'
+        });
+      } else {
+        $("#user").css({
+          'border': '1px solid black',
+          "color": "black"
+        });
+        fn1();
+      }
+    }
+    let url = "http://fecore.net.ua/rest/";
 
+    function fn1() {
+      let user = $("#user").val();
+      let score = $("#scope").val();
+
+      let createUrl = `${url}?action=1&name=${user}&score=${score}`;
+      $("#user").val("");
+      $("#scope").val("");
+      fetch(createUrl, {
+          metod: "post",
+          mode: 'cors',
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
+
+    function removeUser() {
+      let restID = parseInt($("#restID").val());
+      let updateUrl = `${url}?action=3&id=${restID}`;
+      $("#restID").val(" ");
+      console.log(updateUrl);
+      fetch(updateUrl, {
+        metod: "post"
+      }).catch(function(error) {
+        console.log(error);
+      });
     };
   </script>
 </body>
+
 </html>
