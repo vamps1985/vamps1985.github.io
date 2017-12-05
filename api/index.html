@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Модуль 11</title>
+  <script src="jquery-3.2.1.min.js" ></script>
+  <style media="screen">
+    .add-user {
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+
+    }
+
+    button {
+      background: -moz-linear-gradient(#D0ECF4, #5BC9E1, #D0ECF4);
+      background: -webkit-gradient(linear, 0 0, 0 100%, from(#D0ECF4), to(#D0ECF4), color-stop(0.5, #5BC9E1));
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+      padding: 3px 7px;
+      color: #333;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      border: 1px solid #666;
+    }
+
+    #refresh {
+      position: absolute;
+      left: 350px;
+
+    }
+
+    .del {
+      margin-top: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+    }
+
+    .get {
+      margin-top: 10px;
+      border: 1px solid blue;
+      padding: 10px;
+      width: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="add-user">
+    <span>Добавить пользователя</span> <br>
+    <input type="text" id="user" name="" placeholder="name" value=""> <input type="text" id="scope" placeholder="scope" name="" value=""> <button type="button" onclick="checkInpUser();" name="button">Добавить пользоветеля</button>
+  </div>
+  <div id="refresh">
+
+
+    <button type="button" id="refresh" onclick="fn()" name="button">Обновить список пользователей</button> <br> <br>
+  </div>
+  <div class="del">
+    <span>Удалить по id</span> <br>
+    <input type="text" id="restID" name="" value=""> <button type="button" onclick="fn3()" name="button">Удалить по id</button> <br>
+  </div>
+  <div class="get">
+    <span>Обновить информацию о пользователе</span> <br>
+    <input type="text" id="searchId" name="" onchange="getUser()" placeholder="введите id пользователя" value=""> <br> <br> name = <input type="text" id="refreshName" name="" value=""> <br> <br> score = <input type="text" id="refreshScore" name="" value="">    <br> <br>
+    <button type="button" onclick="update()" name="button">обновить информацию</button>
+
+
+
+  </div>
+
+  <script type="text/javascript">
+  getUser();
+    function getUser() {
+      let searchId = $("#searchId").val();
+      $.ajax({
+        url: 'http://online.gto.ua/#c=45&df=29.11.2017&dt=06.12.2017&nf=7&nt=10&adts=2&hc=1.2&h_btr=1&m=0.1&m_btr=1&pf=0&pt=99999999',
+        dataType: "json",
+        success: function(data) {
+          for (var i = 0; i < data.length; i++) {
+            if (data[i].id === searchId) {
+              console.log(data);
+              $("#refreshName").val(data[i].name);
+              $("#refreshScore").val(data[i].score);
+            }
+          }
+        }
+      })
+    }
+
+    function update() {
+      let searchId = $("#searchId").val();
+      let q = $("#refreshName").val();
+      let z = $("#refreshScore").val();
+      let updateUrl1 = `http://online.gto.ua/index.php/search_package.json?c=45&df=29.11.2017&dt=06.12.2017&nf=7&nt=10&adts=2&hc=1.2&h_btr=1&m=0.1&m_btr=1&pf=0&pt=99999999`;
+      $("#searchId").val("");
+      $("#refreshName").val("");
+      $("#refreshScore").val("");
+      fetch(updateUrl1, {
+        metod: "post",
+        mode: 'cors',
+
+      }).catch(function(error) {
+        console.log(error);
+      });
+    }
+    let mass;
+
+    function fn() {
+      $.ajax({
+        url: `http://online.gto.ua/index.php/search_package.json?c=45&df=27.11.2017&dt=2.12.2017&nf=10&nt=11&adts=2&hc=1.2&h_btr=1&m=0.1&m_btr=1&pf=0&pt=99999999`,
+        dataType: "json",
+        mode: "cors",
+        success: function(data) {
+          mass = data;
+          console.log(data);
+          $('li').remove();
+
+
+          for (var i = 0; i < mass.result.length; i++) {
+            $('body').append('<li>' + mass.result[i].city_name  + " " + mass.result[i].hotel_name + "  " + mass.result[i].price + "  "+mass.result[i].date_start + '</li>');
+
+
+          }
+
+        }
+      })
+    };
+
+function fn3() {
+  $.ajax({
+    url: ``,
+curl -H "x-api-key: zEbSMFGRqG0WbuqrVZwSyXmPfFaTKAsM0Y7kL9KA" "https://joinup.ua/search_tour.php?ACTION=SearchTour_PRICES&TOWNFROMINC=18&ADULT=2&CHILD=0&CHILD_AGE=&CHECKIN_BEG=27.11.2017&CHECKIN_END=02.12.2017&STATEINC=9&NIGHTS_FROM=2&NIGHTS_TILL=14&PACKET=0&PRICE_MIN=&PRICE_MAX=&CURRENCY=4&CURRENCY_CODE=UAH&PER_PAGE=false&TOWNTO=%5B%5D&TOWNTO_ANY=1&STARS=%5B%5D&STARS_ANY=1&HOTELS=%5B%5D&HOTELS_ANY=1&MEALS=%5B%5D&FREIGHT=0&FILTER=1&_=1511795378536"
+zEbSMFGRqG0WbuqrVZwSyXmPfFaTKAsM0Y7kL9KA
+    success: function(data) {
+      mass = data;
+      console.log(data);
+      $('li').remove();
+      mass
+
+
+      for (var i = 0; i < mass.result.length; i++) {
+        $('body').append('<li>' + mass.result[i].city_name  + " " + mass.result[i].hotel_name + "  " + mass.result[i].price + "  "+mass.result[i].date_start + '</li>');
+
+
+      }
+
+    }
+  })
+};
+    function checkInpUser() {
+      let user = $("#user").val();
+      let scope = $("#scope").val();
+
+      if (user == 0) {
+        $("#user").css({
+          'border': '1px solid red'
+        });
+        $("#user").attr({
+          'value': 'Ви не ввели імя'
+        });
+      } else {
+        $("#user").css({
+          'border': '1px solid black',
+          "color": "black"
+        });
+        fn1();
+      }
+    }
+    let url = "http://fecore.net.ua/rest/";
+
+    function fn1() {
+      let user = $("#user").val();
+      let score = $("#scope").val();
+
+      let createUrl = `${url}?action=1&name=${user}&score=${score}`;
+      $("#user").val("");
+      $("#scope").val("");
+      fetch(createUrl, {
+          metod: "post",
+          mode: 'cors',
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
+
+    function removeUser() {
+      let restID = parseInt($("#restID").val());
+      let updateUrl = `${url}?action=3&id=${restID}`;
+      $("#restID").val(" ");
+      console.log(updateUrl);
+      fetch(updateUrl, {
+        metod: "post"
+      }).catch(function(error) {
+        console.log(error);
+      });
+    };
+  </script>
+</body>
+
+</html>
