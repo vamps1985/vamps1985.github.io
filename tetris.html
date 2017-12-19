@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>tetris</title>
+    <style media="screen">
+      .head {
+
+
+        width: 220px;
+        height: 220px;
+
+        position: absolute;
+        left: 20%;
+
+      }
+      .box {
+        float: left;
+        width: 50px;
+        height: 50px;
+
+      }
+      .color {
+        background-color: blue;
+      }
+      .tetris {
+        width: 800px;
+        height: 800px;
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tetris">
+
+    </div>
+
+
+
+    <script type="text/javascript">
+    let tet = document.querySelector('.tetris');
+    let tetris = {
+      1: true,
+      2: false
+
+
+    };
+    console.log(tetris);
+    let item = document.getElementsByClassName('box');
+    for (var i = 0; i < item.length; i++) {
+
+    };
+
+    let initialState = () => {
+      let arr =[];
+      for (var c = 0; c < 4; c++) {
+        let row = [];
+        for (var j = 0; j < 4; j++) {
+          row.push(false);
+        }
+        arr.push(row);
+
+
+      }
+      return arr;
+
+
+    }
+
+    //console.log(makeField());
+    let shapes = {
+      tank:()=> {
+        let arr = initialState();
+        arr[0][1] = true;
+        arr[1][0] = true;
+        arr[1][1] = true;
+        arr[1][2] = true;
+
+        return arr;
+      },
+      z:()=> {
+        let arr = initialState();
+        arr[0][1] = true;
+        arr[1][0] = true;
+        arr[1][1] = true;
+        arr[1][2] = true;
+
+        return arr;
+      },
+      l:()=> {
+        let arr = initialState();
+        arr[0][0] = true;
+        arr[1][0] = true;
+        arr[2][0] = true;
+        arr[2][1] = true;
+
+        return arr;
+      },
+      line:()=> {
+        let arr = initialState();
+        arr[0][0] = true;
+        arr[1][0] = true;
+        arr[2][0] = true;
+        arr[3][0] = true;
+
+        return arr;
+      },
+      square:()=> {
+        let arr = initialState();
+        arr[0][0] = true;
+        arr[0][1] = true;
+        arr[1][0] = true;
+        arr[1][1] = true;
+
+        return arr;
+      }
+    }
+    console.log(shapes.square());
+
+
+    let mainState = initialState();
+    let render = (container) => {
+      let elements = "";
+      for (let v = 0; v < 4; v++) {
+        for (let b = 0; b < 4; b++) {
+          let element = mainState[v][b];
+          if (element) {
+            elements += `<div class="box color">
+
+            </div>`
+          } else {
+            elements += `<div class="box">
+
+      </div>`
+
+          }
+        }
+      }
+      let template = `
+      <div class="head">
+
+      ${elements}
+      </div>`;
+      if (1) {
+        tet.innerHTML = template;
+
+      }
+
+    }
+
+let renderShapes =()=> {
+  let shapesKeys = Object.keys(shapes);
+  let random = getRandomInt(0, shapesKeys.length);
+  mainState = shapes[shapesKeys[random]]();
+  console.log(mainState);
+  render(document.body);
+}
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
+render(tetris);
+//var timerId = setInterval(function() {renderShapes();}, 2000);
+//setInterval(renderShapes, 2000)
+renderShapes();
+let count = 1;
+let win = document.querySelector('.head');
+win.style.left = "200px";
+win.style.top = "0px";
+window.addEventListener("keydown", function (event) {
+
+  console.log(event.key);
+
+  if (event.key=="ArrowUp") {
+    console.log(win.style.transform)
+    win.style.transform =  "rotate("+ 90*count + "deg)";
+    count = count+1;
+
+    console.log(win.style.transform.rotate);
+    console.log(event.key);
+
+  }
+
+  if (event.key=="ArrowRight") {
+    let q = parseInt(win.style.left);
+    console.log(q);
+    win.style.left = ""+ (50 + q) +"px";
+
+    console.log(win.style.left);
+
+  }
+  if (event.key=="ArrowLeft") {
+    let q = parseInt(win.style.left);
+    console.log(q);
+    win.style.left = ""+ (q-50) +"px";
+    console.log(win.style.left);
+
+  }
+
+});
+down();
+function down() {
+  let top = parseInt(win.style.top);
+  let main = tet.getBoundingClientRect();
+  let topmain = main.height;
+  console.log(topmain);
+  console.log(top);
+   if (top<topmain-150) {
+  win.style.top = "" + (top+50) + "px";
+
+} else {
+win.classList = "jrf";
+// render(tetris);
+// //var timerId = setInterval(function() {renderShapes();}, 2000);
+// //setInterval(renderShapes, 2000)
+// renderShapes();
+// down();
+
+}
+
+
+};
+setInterval(down, 1000);
+let rotateSgape = (state)=> {
+  let rotateState = initialState();
+  for (let i = 0; i < 4; i++) {
+    for (let j = 0; j < 4; j++) {
+
+    }
+
+  }
+  return rotateState();
+}
+    </script>
+  </body>
+</html>

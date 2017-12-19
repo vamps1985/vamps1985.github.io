@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <!-- Include external CSS. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.css">
+
+    <!-- Include Editor style. -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+    <style media="screen">
+      .tx {
+        width: 500px;
+      }
+      .news {
+        margin-top: 20px;
+        background-color: rgb(151, 215, 226);
+        width: 500px;
+        padding: 10px;
+      }
+      img {
+        width: 50px;
+        height: 50px;
+        float: left;
+      }
+      .username {
+        margin-left: 20px;
+      
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Новости</h2>
+    <div class="form">
+      <select id="selectGrup" class="" name="">
+        <option value="">Выбирите групу</option>
+        <option value="FE2">FE2</option>
+        <option value="FE3">FE3</option>
+        <option value="FE4">FE4</option>
+
+      </select>
+
+      <br>
+      <div class="tx">
+
+
+    <textarea id="text" name="name" rows="8" cols="80" placeholder="Введите сообщение"></textarea> <br>
+    </div>
+    <button id="public" type="button" name="button">Опубликовать</button>
+
+
+    </div>
+    <div id="do">
+
+
+
+    </div>
+    <script type="text/javascript">
+
+      let pub = document.getElementById('public');
+
+
+      function pubOb() {
+        let grup = document.getElementById("selectGrup");
+        let doOb = document.getElementById('do');
+        let text = document.getElementById('text');
+        let date = new Date();
+        let years = date.getFullYear();
+        console.log(text.value);
+        console.log(date);
+        console.log(grup.value);
+        let newOb = document.createElement('div');
+        let newObspan = document.createElement('p');
+        let userImg = document.createElement('img');
+        userImg.setAttribute('src', 'http://w-hatsapp.ru/wp-content/uploads/2017/05/screenshot-2017-05-19-001-3-300x238.png');
+        newObspan.className = "newsSpan";
+        let username = document.createElement('span');
+        username.className = "username";
+        username.appendChild(document.createTextNode("Вася Пупкин" + " to " + grup.value ));
+
+        newOb.appendChild(userImg);
+        newOb.appendChild(username);
+        newObspan.appendChild(document.createTextNode(date.toString() ));
+        newOb.className = "news";
+        newOb.appendChild(newObspan);
+        newOb.appendChild(document.createTextNode(text.value));
+        console.log(newOb);
+        let bl = document.getElementsByClassName('news');
+        if (text.value.length>0) {
+
+
+        if (bl.length ==0) {
+          console.log(bl.length);
+          doOb.appendChild(newOb);
+
+        } else {
+          let z = document.getElementsByClassName('news');
+          console.log(bl.length);
+          doOb.insertBefore(newOb, z[0]);
+        }
+}
+
+
+        text.value = "";
+        grup.value= "";
+
+      };
+      pub.addEventListener("click", pubOb )
+
+
+
+
+    </script>
+
+  </body>
+</html>
