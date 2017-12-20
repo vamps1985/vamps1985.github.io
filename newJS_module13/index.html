@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>JS13</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <form class="col s12 m6" action="#">
+        <div class="row">
+          <div class="input-field col s9">
+            <input placeholder="First name" id="first_name" type="text" class="validate">
+            <label for="first_name"></label>
+          </div>
+          <div class="input-field col s9">
+            <input placeholder="Last name" id="last_name" type="text" class="validate">
+            <label for="last_name"></label>
+          </div>
+          <div class="input-field col s9">
+            <input placeholder="tel +xxx xx xx xx xxx" id="tel" type="text" class="validate">
+            <label for="tel"></label>
+          </div>
+          <div class="col s9">
+            <button class="btn waves-effect waves-light" id="submit-btn" type="submit" name="action">Submit</button>
+          </div>
+        </div>
+      </form>
+      <ul class="results col s12">
+
+      </ul>
+    </div>
+  </div>
+  <script type="text/javascript">
+    /*
+      Соединить задание 1 и 2
+
+      Напишите функцию validate которая проверяет все поля формы
+      и возвращает результат в виде обьекта со свойствами firstname,
+      lastname и tel.
+
+      Кроме того, формат объекта: в свойства записывается буль-флаг
+      уведомляющий о статусе прохождения валидации для поля.
+
+      При клике на кнопку submit должна происходить проверка.
+
+      Визуализировать результат проверки.
+        Написать функцию showResults(results), которая принимает
+        один аргумент results - объект такого формата который возвращает
+        функция validate, и создает html разметку по результатам
+        этого объекта.
+
+        showResults добавляет в список с классом .results
+        (уже есть в html), li для каждого поля формы. В li записать:
+        SUCCESS: 'имя поля' passed validation
+        ERROR: 'имя поля' failed validation
+
+        Для li с положительным результатом дать класс success,
+        с отрицательным error.
+    */
+
+    const firstname = document.getElementById("first_name");
+    const lastname = document.getElementById("last_name");
+    const tel = document.getElementById("tel");
+    const submitBtn = document.getElementById("submit-btn");
+    const resultsList = document.querySelector(".results");
+    //let patern = /^[a-zA-Z][a-zA-Z0-9-_\.\D]{1,20}$/;
+    let paternName = /^[a-zA-Zа-яА-Я'][a-zA-Zа-яА-Я-' ]+[a-zA-Zа-яА-Я']?$/u;
+    let paternTel = /^[0-9()\-+ ]+$/;
+    submitBtn.addEventListener("click", validate);
+    function validate() {
+      let results = {};
+      results.firstname = paternName.test(firstname.value);
+      results.lastname = paternName.test(lastname.value);
+      results.tel = paternTel.test(tel.value);
+      showResults(results);
+      let f = document.getElementsByTagName('form');
+      f[0].reset();
+      return false;
+    };
+    function showResults(results) {
+      resultsList.innerHTML = "";
+      for (var variable in results) {
+        if (results.hasOwnProperty(variable)) {
+          let li = document.createElement('li');
+          if (results[variable]) {
+            li.appendChild(document.createTextNode("SUCCESS: " + variable + " passed validation"));
+            li.className = "success";
+          } else {
+            li.appendChild(document.createTextNode("ERROR: " + variable + " failed validation"));
+            li.className = "error";
+          }
+          resultsList.appendChild(li);
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
