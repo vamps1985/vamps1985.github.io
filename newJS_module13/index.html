@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <div class="row">
-      <form class="col s12 m6" action="#">
+      <form class="col s12 m6" action="index.php">
         <div class="row">
           <div class="input-field col s9">
             <input placeholder="First name" id="first_name" type="text" class="validate">
@@ -74,6 +74,7 @@
     let paternTel = /^[0-9()\-+ ]+$/;
     submitBtn.addEventListener("click", validate);
     function validate() {
+      event.preventDefault();
       let results = {};
       results.firstname = paternName.test(firstname.value);
       results.lastname = paternName.test(lastname.value);
@@ -82,6 +83,7 @@
       let f = document.getElementsByTagName('form');
       f[0].reset();
       return false;
+
     };
     function showResults(results) {
       resultsList.innerHTML = "";
