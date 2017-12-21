@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>JS14</title>
+    <style type="text/css">
+  button {
+   background: -moz-linear-gradient(#00BBD6, #EBFFFF);
+   background: -webkit-gradient(linear, 0 0, 0 100%, from(#00BBD6), to(#EBFFFF));
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00BBD6', endColorstr='#EBFFFF');
+   padding: 3px 7px;
+   color: #333;
+   -moz-border-radius: 5px;
+   -webkit-border-radius: 5px;
+   border-radius: 5px;
+   border: 1px solid #666;
+   margin-left: 50px;
+   width: 100px;
+  }
+ </style>
+  </head>
+  <body>
+    <div class="conteiner">
+      <button id="start" type="button" name="button">Старт</button>
+      <button id="stop" type="button" name="button">Cтоп</button>
+    </div>
+    <script type="text/javascript">
+    let btnStart = document.getElementById('start');
+    let btnStop = document.getElementById('stop');
+      let Person = function (x) {
+        this.startTime = x,
+        this.stopTime = 0,
+        this.interval =  function () {
+          return (this.stopTime - this.startTime)/1000;
+        }
+      };
+        let start = "";
+        let timer;
+      btnStart.addEventListener("click", function () {
+         timer = new Person(0);
+         start = new Date();
+         timer.startTime = start.getTime();
+      });
+      btnStop.addEventListener("click", function () {
+        if (timer.startTime!=0) {
+          let stop = new Date();
+          timer.stopTime = stop.getTime();
+          console.log("Прошло времени "+timer.interval()+ " сек");
+          timer = new Person(0);
+        }
+      });
+    </script>
+
+  </body>
+</html>
