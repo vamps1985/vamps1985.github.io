@@ -10,6 +10,7 @@
     <!-- Include Editor style. -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.3/css/froala_style.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
     <style media="screen">
       .tx {
         width: 500px;
@@ -17,7 +18,7 @@
       .news {
         margin-top: 20px;
         background-color: rgb(151, 215, 226);
-        width: 500px;
+        width: 550px;
         padding: 10px;
       }
       img {
@@ -29,8 +30,15 @@
         margin-left: 20px;
 
       }
+      .textDo {
+        margin-left: 50px;
+      }
+      .newsSpan {
+        margin-left: 80px;
+      }
     </style>
   </head>
+  <p></p>
 
   <body>
     <h2>Новости</h2>
@@ -59,15 +67,14 @@
 
     </div>
     <script type="text/template" id="list-template">
-      <div class="keyboard">
+      <div class="list">
+          <div class="news2">
+            <p><%=text%></p>
 
-
-
-
-          <div class="news1">
 
                 <button class="del__btn">Удалить</button>
 
+              </div>
               </div>
 
 
@@ -79,9 +86,21 @@
 
 
       function pubOb() {
-        let grup = document.getElementById("selectGrup");
-        let doOb = document.getElementById('do');
         let text = document.getElementById('text');
+
+        let doOb = document.getElementById('do');
+        let tmpl = _.template(document.getElementById('list-template').innerHTML);
+        const html = document.getElementById('list-template').textContent.trim();
+        const compiled = _.template(text);
+        const result = compiled(text);
+        console.log(result);
+        let z1 = document.createElement("div");
+        z1.innerHTML = result;
+        doOb.appendChild(z1);
+
+        let grup = document.getElementById("selectGrup");
+
+
         let date = new Date();
         let years = date.getFullYear();
         console.log(text.value);
@@ -89,6 +108,9 @@
         console.log(grup.value);
         let newOb = document.createElement('div');
         let newObspan = document.createElement('p');
+        let textDo = document.createElement('p');
+        textDo.className = "textDo";
+
         let userImg = document.createElement('img');
         userImg.setAttribute('src', 'http://w-hatsapp.ru/wp-content/uploads/2017/05/screenshot-2017-05-19-001-3-300x238.png');
         newObspan.className = "newsSpan";
@@ -101,7 +123,8 @@
         newObspan.appendChild(document.createTextNode(date.toString() ));
         newOb.className = "news";
         newOb.appendChild(newObspan);
-        newOb.appendChild(document.createTextNode(text.value));
+        textDo.appendChild(document.createTextNode(text.value));
+        newOb.appendChild(textDo);
         console.log(newOb);
         let bl = document.getElementsByClassName('news');
         if (text.value.length>0) {

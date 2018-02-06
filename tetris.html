@@ -18,14 +18,15 @@
         float: left;
         width: 50px;
         height: 50px;
+        border: 1px solid black;
 
       }
       .color {
         background-color: blue;
       }
       .tetris {
-        width: 800px;
-        height: 800px;
+        width: 520px;
+        height: 520px;
         border: 1px solid red;
       }
     </style>
@@ -53,9 +54,9 @@
 
     let initialState = () => {
       let arr =[];
-      for (var c = 0; c < 4; c++) {
+      for (var c = 0; c < 10; c++) {
         let row = [];
-        for (var j = 0; j < 4; j++) {
+        for (var j = 0; j < 10; j++) {
           row.push(false);
         }
         arr.push(row);
@@ -98,19 +99,19 @@
       },
       line:()=> {
         let arr = initialState();
-        arr[0][0] = true;
-        arr[1][0] = true;
-        arr[2][0] = true;
+        arr[0][4] = true;
+        arr[1][4] = true;
+        arr[2][4] = true;
         arr[3][0] = true;
 
         return arr;
       },
       square:()=> {
         let arr = initialState();
-        arr[0][0] = true;
-        arr[0][1] = true;
-        arr[1][0] = true;
-        arr[1][1] = true;
+        arr[1][4] = true;
+        arr[1][5] = true;
+        arr[2][4] = true;
+        arr[2][5] = true;
 
         return arr;
       }
@@ -121,8 +122,8 @@
     let mainState = initialState();
     let render = (container) => {
       let elements = "";
-      for (let v = 0; v < 4; v++) {
-        for (let b = 0; b < 4; b++) {
+      for (let v = 0; v < 10; v++) {
+        for (let b = 0; b < 10; b++) {
           let element = mainState[v][b];
           if (element) {
             elements += `<div class="box color">
@@ -166,19 +167,27 @@ render(tetris);
 renderShapes();
 let count = 1;
 let win = document.querySelector('.head');
-win.style.left = "200px";
-win.style.top = "0px";
+let rotateShape = (state) => {
+    let rotatedState = initialState(4, 4);
+    // Check length of field
+    for (let i = 0; i < state.length; i++) {
+        state[i].reverse();
+        for (let j = 0; j < state[i].length; j++) {
+            rotatedState[j][i] = state[i][j];
+        }
+    }
+    return rotatedState;
+}
 window.addEventListener("keydown", function (event) {
 
   console.log(event.key);
 
   if (event.key=="ArrowUp") {
-    console.log(win.style.transform)
-    win.style.transform =  "rotate("+ 90*count + "deg)";
-    count = count+1;
+    rotateShape(mainState);
 
-    console.log(win.style.transform.rotate);
-    console.log(event.key);
+
+
+
 
   }
 
@@ -221,7 +230,7 @@ win.classList = "jrf";
 
 
 };
-setInterval(down, 1000);
+//setInterval(down, 1000);
 let rotateSgape = (state)=> {
   let rotateState = initialState();
   for (let i = 0; i < 4; i++) {

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Module 15</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+
+<body>
+  <div class="main">
+    <button type="button" id="start" name="button">Start</button>
+    <button type="button" id="stop" name="button">Stop</button>
+    <button type="button" id="newYear" name="button">До нового года осталось</button>
+  </div>
+  <script type="text/javascript">
+    let btnStart = document.getElementById('start');
+    let btnStop = document.getElementById('stop');
+    let newYear = document.getElementById('newYear');
+    class Timer {
+      constructor(startTime, stopTime) {
+        this.startTime = startTime,
+          this.stopTime = stopTime,
+          this.interval = this.stopTime - this.startTime;
+      }
+      start() {
+        let date = new Date();
+        let starttime = date.getTime();
+        this.startTime = starttime;
+        console.log(this.startTime);
+      }
+      stop() {
+        let date = new Date();
+        let stopTime = date.getTime();
+        this.stopTime = stopTime;
+      }
+      getTime() {
+        this.interval = ((this.stopTime - this.startTime));
+        console.log("Прошло " + this.interval + " милисекунд");
+
+      }
+
+      static timeToNY() {
+        let date = new Date();
+        let nowYear = date.getFullYear()
+        let nextYear = nowYear + 1;
+        let getDateNow = date.getTime();
+        let dateNewYear = new Date(nextYear, 0, 1);
+        let time = dateNewYear.getTime();
+
+        let remaining = time - date;
+        remaining /= 1000; //seconds
+        remaining /= 60; //minutes
+        remaining /= 60; //hours
+        remaining /= 24;
+        remaining = Math.round(remaining);
+        return "До нового года осталось "+ remaining + " дней";
+      }
+    }
+    let timer1 = new Timer(5, 10);
+    let timer2 = new Timer(1, 200);
+    let timer3 = new Timer(7, 21);
+    console.log(timer1.interval);
+    console.log(timer2.interval);
+    console.log(timer3.interval);
+    let stopwatch = new Timer(0, 0);
+    btnStart.addEventListener("click", function() {
+      stopwatch.start();
+    })
+    btnStop.addEventListener("click", function() {
+      stopwatch.stop();
+    })
+    btnStop.addEventListener("click", function functionName() {
+      stopwatch.getTime();
+    });
+    newYear.addEventListener("click", function functionName() {
+      console.log(Timer.timeToNY());
+    });
+  </script>
+</body>
+
+</html>
