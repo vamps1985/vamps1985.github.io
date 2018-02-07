@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Module 16</title>
+</head>
+
+<body>
+
+
+  <script type="text/javascript">
+    let x = 10;
+    y = 10;
+    color = "#009688";
+
+    class Shape {
+      constructor({
+        color = "none",
+        initX = 0,
+        initY = 0
+      }) {
+        this.color = color;
+        this.initX = initX;
+        this.initY = initY;
+      }
+      getColor() {
+        console.log(this.color);
+      }
+      setColor(val) {
+        this.color = val;
+      }
+      getCoords() {
+        return this.initX, this.initY;
+      }
+      moveTo(newX, newY) {
+        this.initX = newX;
+        this.initY = newY;
+
+      }
+    }
+    class Rectangle extends Shape {
+      constructor(params, initWidth, initHeight) {
+        super(params),
+          this.initWidth = initWidth;
+        this.initHeight = initHeight;
+      }
+
+      setWidth(newWidth) {
+        this.initWidth = newWidth;
+      }
+      setHeight(newHeight) {
+        this.initHeight = newHeight;
+      }
+      getDims() {
+        return this.initWidth, this.initHeight;
+      }
+      draw() {
+
+        console.log(`Drawing a Rectangle at:
+    (x: ${this.initX} y: ${this.initY} )
+      Width dimentions:
+        width: ${this.initWidth}
+        height: ${this.initWidth}
+      Field with color:${this.color}`);
+      }
+    }
+    let test1 = () => {
+      let rectangle = new Rectangle({
+        color: color,
+        initX: x,
+        initY: y
+      });
+      rectangle.setWidth(100);
+      rectangle.setHeight(100);
+      rectangle.getDims();
+      rectangle.draw();
+    };
+    test1();
+    class Circle extends Shape {
+      constructor(params, initRadius) {
+        super(params),
+          this.initRadius = initRadius;
+
+      }
+      getRadius() {
+        return this.initRadius;
+      }
+      setRadius(val) {
+        this.initRadius = val;
+      }
+      draw() {
+        console.log(
+          `Drawing a Circle at:
+          (x: ${this.initX}, y: ${this.initY})
+          With dimentions:
+            radius: ${this.initRadius}
+            Filled with color: ${this.color}`);
+      }
+    }
+    let test2 = () => {
+      let circle = new Circle({
+        color: "#0093688",
+        initX: 50,
+        initY: 50
+      });
+      circle.setRadius(250);
+      circle.getRadius();
+      circle.draw();
+    };
+    test2();
+  </script>
+
+</body>
+
+</html>
